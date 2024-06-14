@@ -1,16 +1,13 @@
+import './styles/Footer.css';
 
 export default function Footer() {
-    return (
-        <>
-            <footer>
-                <div>
-                    <div>
-                        <div>
-                            <h1>Footer</h1>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </>
-    )
+  return (
+    <>
+      <footer>
+        <p className="footer-copyrights">
+          © 2024 Daniel Attali all rights reserved
+        </p>
+      </footer>
+    </>
+  );
 }

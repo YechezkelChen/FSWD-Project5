@@ -1,3 +1,5 @@
+import "./styles/Navbar.css";
+
 import { Link } from "react-router-dom";
 
 import { pages } from "../data/pages.js";
@@ -5,11 +7,14 @@ import { pages } from "../data/pages.js";
 export default function Navbar() {
   return (
     <>
-      <nav>
-        <ul>
+      <nav className="nav">
+        <div className="nav-logo">
+          <Link to="/">React App</Link>
+        </div>
+        <ul className="nav-list">
           {pages.map((page, index) => {
             return (
-              <li key={index}>
+              <li className="nav-item" key={index}>
                 <Link to={page.url}>{page.name}</Link>
               </li>
             );
