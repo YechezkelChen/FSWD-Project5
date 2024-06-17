@@ -1,0 +1,39 @@
+.btn {
+    border: none;
+
+    color: white;
+
+    padding: .5rem 1rem;
+
+    text-align: center;
+
+    text-decoration: none;
+    display: inline-block;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    border-radius: var(--border-radius);
+}
+
+.btn-blue {
+    background-color: var(--blue);
+}
+
+.btn-blue:hover {
+    --blue-dim: #0077cc;
+    background-color: var(--blue-dim);
+}
+
+.btn-red {
+    background-color: var(--red);
+}
+
+.btn-orange {
+    background-color: var(--orange);
+}
+
+.btn-green {
+    background-color: var(--green);
+}

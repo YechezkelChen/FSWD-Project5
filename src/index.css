@@ -19,6 +19,8 @@
   --text-primary: var(--white);
 
   --border-radius: 5px;
+
+  --white-dim: rgba(255, 255, 255, 0.7);
 }
 
 * {
