@@ -1,42 +1,33 @@
 .nav {
   min-width: 100%;
-
   display: flex;
-
   justify-content: space-between;
   align-items: center;
-
-  /* margin-bottom: 2rem; */
   padding: 0 5rem;
-
   border-bottom: 1px solid var(--grey);
 }
 
 .nav-logo a {
-    text-decoration: none;
-    color: var(--white);
-    
-    font-size: 1.5rem;
-    font-weight: bold;
+  text-decoration: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .nav-logo a:hover {
-    color: var(--blue);
+  color: var(--blue);
 }
 
 .nav-list {
   display: flex;
   justify-content: space-around;
-
   list-style: none;
-
   padding: 1rem 0rem;
 }
 
 .nav-item a {
   text-decoration: none;
   color: var(--blue);
-
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
 }

@@ -5,7 +5,7 @@ export default function Footer() {
     <>
       <footer>
         <p className="footer-copyrights">
-          © 2024 Daniel Attali all rights reserved
+          © 2024 Daniel Attali & Yechezkel Chen all rights reserved
         </p>
       </footer>
     </>

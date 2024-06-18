@@ -1,12 +1,11 @@
-import TodoItem from "./TodoItem";
+import React from 'react';
+import TodoItem from './TodoItem';
 
-export default function TodoList() {
-  const todoList = [];
-
+export default function TodoList({ todos, setTodos }) {
   return (
     <div className="todo-list">
-      {todoList.map((todo, index) => (
-        <TodoItem key={index} todo={todo} />
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} setTodos={setTodos} />
       ))}
     </div>
   );

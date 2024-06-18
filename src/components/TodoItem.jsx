@@ -1,18 +1,25 @@
-import PropTypes from "prop-types";
+import React from 'react';
+import '../pages/styles/Todo.css';
 
-export default function TodoItem({ todo }) {
+export default function TodoItem({ todo, setTodos }) {
+  // TODO: fix toggleCompletion this dont change really!!
+  const toggleCompletion = () => {
+    setTodos(prevTodos => {
+      prevTodos.map(t =>
+        t.id === todo.id ? { ...t, completed: !t.completed } : t
+      )
+    }
+    );
+  };
+
   return (
     <div className="todo-item">
-      <input type="checkbox" checked={todo.isCompleted} />
-      <span>{todo.text}</span>
+      <span>{todo.id}. {todo.title}</span>
+      <input
+        type="checkbox"
+        checked={todo.completed}
+        onChange={toggleCompletion}
+      />
     </div>
   );
 }
-
-TodoItem.propTypes = {
-  todo: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired,
-    isCompleted: PropTypes.bool.isRequired,
-  }).isRequired,
-};
