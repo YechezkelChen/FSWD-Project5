@@ -8,6 +8,10 @@ const pages = [
     url: "/login",
   },
   {
+    name: "Logout",
+    url: "/logout",
+  },
+  {
     name: "Register",
     url: "/register",
   },

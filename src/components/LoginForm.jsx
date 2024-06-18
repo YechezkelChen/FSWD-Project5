@@ -2,11 +2,11 @@ import "./styles/Button.css";
 import "./styles/Form.css";
 
 // getting the needed function from the utils
-import { loginUser, getUserEmail } from "../utils/loggedUsers";
+import { loginUser, getUserByName } from "../utils/loggedUsers";
 import hash from "../utils/hash";
 
 // The login form has
-// - email field
+// - username field
 // - password field
 // - submit button
 
@@ -17,23 +17,18 @@ export default function LoginForm() {
 
     // checking if the email is already registered
     // if the email is not registered, the user is not allowed to log in
-    const email = document.getElementById("login-email").value;
-
-    // getUserEmail(email).then((user) => {
-    //   if (user.length === 0) {
-    //     alert("Email is not registered");
-    //     return;
-    //   }
-    // });
+    const username = document.getElementById("login-username").value;
 
     // get the user email and store it in the user variable
-    const user = await getUserEmail(email);
+    const users = await getUserByName(username);
 
     // if the email is not registered
-    if (user.length === 0) {
-      alert("Email is not registered");
+    if (users.length === 0) {
+      alert("username is not registered");
       return;
     }
+
+    const user = users[0];
 
     // get the email and password from the form
     const password = document.getElementById("login-password").value;
@@ -46,19 +41,22 @@ export default function LoginForm() {
     }
 
     // log in the user
-    loginUser({ email, password });
+    loginUser({ username, password });
+
+    // redirect the user to the profile page
+    window.location.href = "/profile";
   };
 
   return (
     <form className="form" onSubmit={handleSubmit}>
       <div className="form-group">
-        <label htmlFor="login-email">Email</label>
+        <label htmlFor="login-username">User Name</label>
         <input
           className="form-input"
-          type="email"
-          name="login-email"
-          id="login-email"
-          placeholder="example@domain.com"
+          type="text"
+          name="login-username"
+          id="login-username"
+          placeholder="user name"
         />
       </div>
       <div className="form-group">

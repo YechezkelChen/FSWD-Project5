@@ -2,8 +2,18 @@
   "loggedUsers": [
     {
       "id": 1,
-      "email": "danielattali16@gmail.com",
-      "password": "123456"
+      "username": "default user",
+      "password": 1509442
+    },
+    {
+      "id": "ed1b",
+      "username": "dattali",
+      "password": 1509442
+    },
+    {
+      "id": "02d4",
+      "username": "admin",
+      "password": 92668751
     }
   ],
   "posts": [

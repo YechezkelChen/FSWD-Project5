@@ -26,6 +26,7 @@ export const registerUser = async (user) => {
     );
     // Log in the user in the LocalStorage
     localStorage.setItem("loggedUser", JSON.stringify(response.data));
+    window.dispatchEvent(new Event("user-logged"));
     return response.data;
   } catch (error) {
     console.error("Error registering user: ", error);
@@ -40,13 +41,14 @@ export const loginUser = async (user) => {
   try {
     // Log in the user in the LocalStorage
     localStorage.setItem("loggedUser", JSON.stringify(user));
+    window.dispatchEvent(new Event("user-logged"));
   } catch (error) {
     console.error("Error logging in user: ", error);
   }
 };
 
 // get a user from the server using the id
-export const getUserIs = async (id) => {
+export const getUserId = async (id) => {
   try {
     const response = await axios.get(`http://localhost:3001/loggedUsers/${id}`);
     return response.data;
@@ -55,12 +57,11 @@ export const getUserIs = async (id) => {
   }
 };
 
-export const getUserEmail = async (email) => {
+export const getUserByName = async (username) => {
   try {
     const response = await axios.get(
-      `http://localhost:3001/loggedUsers?email=${email}`
+      `http://localhost:3001/loggedUsers?username=${username}`
     );
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error getting user: ", error);
@@ -72,6 +73,7 @@ export const logoutUser = () => {
   try {
     // Log out the user from the LocalStorage
     localStorage.removeItem("loggedUser");
+    window.dispatchEvent(new Event("user-logged"));
   } catch (error) {
     console.error("Error logging out user: ", error);
   }
