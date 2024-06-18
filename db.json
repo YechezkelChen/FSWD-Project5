@@ -1,4 +1,11 @@
 {
+  "loggedUsers": [
+    {
+      "id": 1,
+      "email": "danielattali16@gmail.com",
+      "password": "123456"
+    }
+  ],
   "posts": [
     {
       "userId": 1,
