@@ -1,0 +1,86 @@
+.todos-container {
+    padding: 2rem;
+}
+
+.todos-header {
+    font-size: 2.5rem;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.todo-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0 20%;
+    border-radius: var(--border-radius);
+}
+
+.todo-form input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid var(--grey);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    min-width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.todo-form button {
+    margin-top: 1rem;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--grey);
+    border-radius: var(--border-radius);
+}
+
+.todo-item span {
+    font-size: 1.2rem;
+    color: var(--white);
+}
+
+.todo-item input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.todo-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.todo-filters input,
+.todo-filters select {
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey);
+    background-color: transparent;
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.todo-filters select option {
+    background-color: var(--grey);
+    color: var(--white);
+}
