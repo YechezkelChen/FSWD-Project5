@@ -1,23 +1,13 @@
-import PropTypes from "prop-types";
+import React from 'react';
+import PostItem from './PostItem';
+import '../pages/styles/Posts.css';
 
-import PostItem from "./PostItem";
-
-export default function PostList({ postList }) {
+export default function PostList({ url, userId, posts, setPosts }) {
   return (
     <div className="post-list">
-      {postList.map((post, index) => (
-        <PostItem key={index} post={post} />
+      {posts.map(post => (
+        <PostItem key={post.id} url={url} userId={userId} post={post} setPosts={setPosts} />
       ))}
     </div>
   );
 }
-
-PostList.propTypes = {
-  postList: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      body: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};

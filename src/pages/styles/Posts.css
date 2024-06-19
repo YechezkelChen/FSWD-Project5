@@ -1,0 +1,129 @@
+.posts-container {
+    padding: 2rem;
+}
+
+.posts-header {
+    font-size: 2.5rem;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0 20%;
+    border-radius: var(--border-radius);
+}
+
+.post-form input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid var(--grey);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    min-width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.post-form button {
+    margin-top: 1rem;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--grey);
+    border-radius: var(--border-radius);
+}
+
+.post-item span {
+    font-size: 1.2rem;
+    color: var(--white);
+}
+
+.post-item button {
+    cursor: pointer;
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+}
+
+.post-item button:hover {
+    background-color: var(--blue-dim);
+}
+
+.post-item-content {
+    font-size: 1.2rem;
+    color: var(--white);
+}
+
+.comment-section {
+    margin-top: 1rem;
+}
+
+.comment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--grey);
+    border-radius: var(--border-radius);
+}
+
+.comment-item span {
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.comment-form input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid var(--grey);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    min-width: 80%;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+.comment-form button {
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+}
+
+.comment-form button:hover {
+    background-color: var(--blue-dim);
+}
+
+.post-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}

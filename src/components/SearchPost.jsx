@@ -1,58 +1,31 @@
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from 'react';
+import '../pages/styles/Posts.css';
 
-import { useState } from "react";
+export default function SearchPost({ posts, setPosts }) {
+  const [search, setSearch] = useState('');
 
-export default function SearchPost({ postList, setPostList }) {
-  const [search, setSearch] = useState("");
-  const [searchBy, setSearchBy] = useState("title");
+  useEffect(() => {
+    let filteredPosts = [...posts];
+    if (search) {
+      filteredPosts = filteredPosts.filter(
+        post =>
+          post.title.includes(search) ||
+          post.id.toString().includes(search)
+      );
+    }
+
+    setPosts(filteredPosts);
+  }, [, search])
 
   return (
-    <form action="">
-      <div className="form-group">
-        <label htmlFor="search">Search Post</label>
-        <input
-          type="text"
-          id="search"
-          placeholder={"Search post by " + searchBy}
-          onChange={(e) => {
-            setSearch(e.target.value);
-          }}
-        />
-        <select
-          name="search-selector"
-          id="search-selector"
-          onChange={(e) => {
-            setSearchBy(e.target.value);
-          }}
-        >
-          <option value="title">Title</option>
-          <option value="id">ID</option>
-        </select>
-      </div>
-      <button
-        type="submit"
-        onClick={(e) => {
-          e.preventDefault();
-          let mutPostList = postList;
-          mutPostList = mutPostList.filter((post) => {
-            return post[searchBy].includes(search);
-          });
-          setPostList([...mutPostList]);
-        }}
-      >
-        Search
-      </button>
-    </form>
+    <div className="post-filters">
+      <input
+        type="text"
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+        className="form-input"
+        placeholder="Search posts by title or serial number"
+      />
+    </div>
   );
 }
-
-SearchPost.propTypes = {
-  setPostList: PropTypes.func.isRequired,
-  postList: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      body: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
