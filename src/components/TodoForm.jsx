@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import './styles/Button.css';
-import './styles/Form.css';
+import PropTypes from "prop-types";
+
+import { useState } from "react";
+import "./styles/Button.css";
+import "./styles/Form.css";
 
 export default function TodoForm({ url, userId, todos, setTodos }) {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
 
   const addTodo = (e) => {
     e.preventDefault();
@@ -12,36 +14,47 @@ export default function TodoForm({ url, userId, todos, setTodos }) {
       userId: userId,
       id: todos.length ? String(Number(todos[todos.length - 1].id) + 1) : 1,
       title: title,
-      completed: false
+      completed: false,
     };
 
-    setTodos(prevTodos => [...prevTodos, newTodo]);
-    setTitle('');
+    setTodos((prevTodos) => [...prevTodos, newTodo]);
+    setTitle("");
 
     fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(newTodo)
+      body: JSON.stringify(newTodo),
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Todo added:', data);
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Todo added:", data);
       })
-      .catch(error => console.error('Error adding todo:', error));
+      .catch((error) => console.error("Error adding todo:", error));
   };
 
   return (
     <form className="todo-form" onSubmit={addTodo}>
-      <input
-        type="text"
-        value={title}
-        onChange={e => setTitle(e.target.value)}
-        className="form-input"
-        placeholder="Enter todo title"
-      />
-      <button type="submit" className="btn btn-blue">Add Todo</button>
+      <div className="form-group">
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="form-input"
+          placeholder="Enter todo title"
+        />
+        <button type="submit" className="btn btn-blue">
+          Add Todo
+        </button>
+      </div>
     </form>
   );
 }
+
+TodoForm.propTypes = {
+  url: PropTypes.string.isRequired,
+  userId: PropTypes.number.isRequired,
+  todos: PropTypes.array.isRequired,
+  setTodos: PropTypes.func.isRequired,
+};

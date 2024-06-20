@@ -45,7 +45,7 @@ export default function RegisterForm() {
 
   return (
     <div className="main">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <div className="form-group">
           <label htmlFor="register-username">User Name</label>
           <input

@@ -16,7 +16,7 @@ import "../components/styles/Button.css";
 import "../components/styles/Form.css";
 import "./styles/Posts.css";
 
-import { getLoggedUser } from "../utils/loggedUsers.js";
+// import { getLoggedUser } from "../utils/loggedUsers.js";
 
 export default function Posts() {
   // const url = 'https://jsonplaceholder.typicode.com/todos'
@@ -24,7 +24,7 @@ export default function Posts() {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
 
-  const user = getLoggedUser();
+  // const user = getLoggedUser();
   const userId = 1; //TODO: to change to real userId
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Posts() {
   }, [posts]); //TODO: to think how to drop this, because is fuck the serch
 
   return (
-    <div className="posts-container">
+    <div className="main">
       <h1 className="posts-header">Posts</h1>
       <PostForm />
       <SearchPost posts={posts} setPosts={setFilteredPosts} />

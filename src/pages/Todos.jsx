@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
 import TodoFilters from "../components/TodoFilters";
+
 import './styles/Todo.css';
-import { getLoggedUser } from "../utils/loggedUsers.js";
+
+// import { getLoggedUser } from "../utils/loggedUsers.js";
 
 export default function Todos() {
   // const url = 'https://jsonplaceholder.typicode.com/todos'
@@ -11,7 +14,7 @@ export default function Todos() {
   const [todos, setTodos] = useState([]);
   const [filteredTodos, setFilteredTodos] = useState([]);
 
-  const user = getLoggedUser()
+  // const user = getLoggedUser()
   const userId = 1 //TODO: to change to real userId
 
   useEffect(() => {
@@ -25,7 +28,7 @@ export default function Todos() {
   }, [todos]);//TODO: to think how to drop this, because is fuck the serch
 
   return (
-    <div className="todos-container">
+    <div className="main">
       <h1 className="todos-header">Todos</h1>
       <TodoForm url={url} userId={userId} todos={todos} setTodos={setTodos} />
       <TodoFilters todos={todos} setTodos={setFilteredTodos} />
