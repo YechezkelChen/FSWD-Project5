@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 
+import { getLoggedUser } from "../utils/loggedUsers";
+import { getUserByUsername } from "../utils/User";
+
 import axios from "axios";
 
-import { getLoggedUser } from "../utils/loggedUsers";
-
-const getUser = async (userId) => {
-  // this function will use the axios.get to get the user from the server using the id
-  // the function will return the user object
-  return await axios.get(`http://localhost:3001/users/${userId}`);
+const createUser = async (user) => {
+  // NOTE: this will be put in th User.js file in utils folder
+  try {
+    const response = await axios.post("http://localhost:3001/users", user);
+    // Log in the user in the LocalStorage
+    return response.data;
+  } catch (error) {
+    console.error("Error adding user to database: ", error);
+  }
 };
-
-// const createUser = async (user) => {
-//   return null;
-// };
 
 export default function Profile() {
   const [user, setUser] = useState({});
 
   const loggedUser = getLoggedUser();
-  console.log(loggedUser);
 
   if (!loggedUser) {
     // move back to the login page
@@ -27,22 +28,42 @@ export default function Profile() {
 
   useEffect(() => {
     // get the user from the server using the id
-    console.log("loggedUser.id", loggedUser.id);
-    getUser(loggedUser.id)
+    getUserByUsername(loggedUser.username)
       .then((response) => {
-        setUser(response.data);
+        const user = response[0];
+        setUser(user);
       })
-      .catch(() => {
-        // console.log(error);
+      .catch((error) => {
+        console.log(error);
         setUser(null);
       });
-  }, [loggedUser.id]);
+  }, [loggedUser.username]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const user = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      username: loggedUser.username,
+      address: null,
+      geo: null,
+    };
+    createUser(user).then((response) => {
+      setUser(response);
+    });
+
+    form.reset();
+
+    // move back to the profile page
+    window.location.href = "/profile";
+  };
 
   return (
     <>
       <div className="main">
         <h1>Profile</h1>
-        {/* if the user is null we will present a form to add data so we can create user */}
         {user ? (
           <div>
             <h2>{user.name}</h2>
@@ -52,7 +73,7 @@ export default function Profile() {
         ) : (
           <div>
             <h2>Create a profile</h2>
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
                 <input

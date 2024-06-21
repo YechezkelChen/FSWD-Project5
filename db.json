@@ -2,23 +2,13 @@
   "loggedUsers": [
     {
       "id": "1",
-      "username": "default user",
+      "username": "admin",
       "password": 1509442
     },
     {
-      "id": "ed1b",
+      "id": "6bc6",
       "username": "dattali",
       "password": 1509442
-    },
-    {
-      "id": "02d4",
-      "username": "admin",
-      "password": 92668751
-    },
-    {
-      "id": "3b53",
-      "username": "chezy",
-      "password": 48690
     }
   ],
   "posts": [
@@ -39859,6 +39849,15 @@
         "catchPhrase": "Centralized empowering task-force",
         "bs": "target end-to-end models"
       }
+    },
+    {
+      "id": "ea35",
+      "name": "Daniel Attali",
+      "email": "danielattali16@gmail.com",
+      "phone": "0549658737",
+      "username": "dattali",
+      "address": null,
+      "geo": null
     }
   ],
   "todos": [
