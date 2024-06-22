@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { createUser } from "../utils/User.jsx";
+import { createUser } from "../utils/User.js";
 
 export default function ProfileForm(setUser, username) {
   const handleSubmit = (event) => {
@@ -27,7 +27,6 @@ export default function ProfileForm(setUser, username) {
 
   return (
     <div>
-      <h2>Create a profile</h2>
       <form className="form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>

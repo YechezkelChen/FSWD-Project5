@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { ProfileForm } from "../components/ProfileForm.jsx";
+import ProfileForm from "../components/ProfileForm.jsx";
 
 import { getLoggedUser } from "../utils/loggedUsers";
 import { getUserByUsername } from "../utils/User";
+
+import "./styles/Profile.css";
 
 export default function Profile() {
   const [user, setUser] = useState({});
@@ -31,12 +33,12 @@ export default function Profile() {
   return (
     <>
       <div className="main">
-        <h1>Profile</h1>
+        <h1 className="page-header">Profile</h1>
         {user ? (
-          <div className="Profile">
-            <h2>{user.name}</h2>
-            <p>{user.email}</p>
-            <p>{user.phone}</p>
+          <div className="profile">
+            <h2 className="profile-name profile-info">{user.name}</h2>
+            <p className="profile-email profile-info">{user.email}</p>
+            <p className="profile-phone profile-info">{user.phone}</p>
           </div>
         ) : (
           <ProfileForm setUser={setUser} username={loggedUser.username} />
