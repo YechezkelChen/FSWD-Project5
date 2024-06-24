@@ -6,12 +6,11 @@ import TodoList from "../components/TodoList";
 
 import { getUserByUsername } from "../utils/User";
 import { getLoggedUser } from "../utils/loggedUsers";
+import { getTodos } from "../utils/Todo";
 
 import "./styles/Todo.css";
 
 export default function Todos() {
-  const url = "http://localhost:3001/todos";
-
   const [todos, setTodos] = useState([]);
   // const [filteredTodos, setFilteredTodos] = useState([]);
 
@@ -21,14 +20,13 @@ export default function Todos() {
   // const userId = 1;
 
   useEffect(() => {
-    fetch(`${url}?userId=${userId}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setTodos(data);
-        // setFilteredTodos(data);
-      })
-      .catch((error) => console.error("Error reading todos:", error));
-  }, [url, userId]);
+    async function fetchTodos() {
+      const response = await getTodos(userId);
+      setTodos(response.data);
+    }
+
+    fetchTodos();
+  }, [userId]);
 
   return (
     <div className="main">

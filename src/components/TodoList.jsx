@@ -6,11 +6,9 @@ import TodoItem from "./TodoItem";
 import "../pages/styles/Todo.css";
 
 export default function TodoList({ todos, setTodos }) {
-  const [editMode, setEditMode] = useState(true);
+  const [editMode, setEditMode] = useState(false);
 
   return (
-    // add a button to change the edit mode
-    // add a button to change the edit mode
     <>
       <div className="header-btn">
         <button className="btn btn-blue" onClick={() => setEditMode(!editMode)}>
