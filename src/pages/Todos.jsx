@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import TodoFilters from "../components/TodoFilters";
-import TodoForm from "../components/TodoForm";
-import TodoList from "../components/TodoList";
+import TodoFilters from "../components/todos/TodoFilters.jsx";
+import TodoForm from "../components/todos/TodoForm.jsx";
+import TodoList from "../components/todos/TodoList.jsx";
 
 import { getUserByUsername } from "../utils/User";
 import { getLoggedUser } from "../utils/loggedUsers";
@@ -17,7 +17,6 @@ export default function Todos() {
   const loggedUser = getLoggedUser();
   const user = getUserByUsername(loggedUser.username);
   const userId = user.id;
-  // const userId = 1;
 
   useEffect(() => {
     async function fetchTodos() {

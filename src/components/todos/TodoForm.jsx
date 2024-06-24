@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 
-import { getLoggedUser } from "../utils/loggedUsers";
-import { getUserByUsername } from "../utils/User";
-import { createTodo } from "../utils/Todo";
+import { getLoggedUser } from "../../utils/loggedUsers.js";
+import { getUserByUsername } from "../../utils/User.js";
+import { createTodo } from "../../utils/Todo.js";
 
-import "./styles/Button.css";
-import "./styles/Form.css";
+import "../styles/Button.css";
+import "../styles/Form.css";
 
 export default function TodoForm({ setTodos }) {
   // const url = "http://localhost:3001/todos";

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../pages/styles/Posts.css';
+
+import '../../pages/styles/Posts.css';
 
 export default function CommentForm({ userId, postId, addComment }) {
     const [newComment, setNewComment] = useState('');

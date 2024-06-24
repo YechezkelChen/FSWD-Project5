@@ -35,36 +35,15 @@ export const registerUser = async (user) => {
 
 // Function to log in a user
 export const loginUser = async (user) => {
-    // hashing the password before storing it in the json-server
-    // we will be using the same hash function to compare the password when logging in
-    user.password = hash(user.password);
+  // hashing the password before storing it in the json-server
+  // we will be using the same hash function to compare the password when logging in
+  user.password = hash(user.password);
   try {
     // Log in the user in the LocalStorage
     localStorage.setItem("loggedUser", JSON.stringify(user));
     window.dispatchEvent(new Event("user-logged"));
   } catch (error) {
     console.error("Error logging in user: ", error);
-  }
-};
-
-// get a user from the server using the id
-export const getUserId = async (id) => {
-  try {
-    const response = await axios.get(`http://localhost:3001/loggedUsers/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error getting user: ", error);
-  }
-};
-
-export const getUserByName = async (username) => {
-  try {
-    const response = await axios.get(
-      `http://localhost:3001/loggedUsers?username=${username}`
-    );
-    return response.data;
-  } catch (error) {
-    console.error("Error getting user: ", error);
   }
 };
 
@@ -86,5 +65,26 @@ export const getLoggedUser = () => {
     return JSON.parse(localStorage.getItem("loggedUser"));
   } catch (error) {
     console.error("Error getting logged in user: ", error);
+  }
+};
+
+// get a user from the server using the id
+export const getUserById = async (id) => {
+  try {
+    const response = await axios.get(`http://localhost:3001/loggedUsers/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error getting user: ", error);
+  }
+};
+
+export const getUserByName = async (username) => {
+  try {
+    const response = await axios.get(
+      `http://localhost:3001/loggedUsers?username=${username}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error getting user: ", error);
   }
 };

@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 
 import { useState } from "react";
 
-import CommentForm from "./CommentForm";
-import CommentList from "./CommentList";
+import CommentForm from "../comments/CommentForm.jsx";
+import CommentList from "../comments/CommentList.jsx";
 
-import "../pages/styles/Posts.css";
+import "../../pages/styles/Posts.css";
 
 export default function PostItem({ post, userId, setPosts }) {
   const [showContent, setShowContent] = useState(false);

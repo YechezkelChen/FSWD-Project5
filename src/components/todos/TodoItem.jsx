@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
-import "../pages/styles/Todo.css";
+import "../../pages/styles/Todo.css";
 
-import { deleteTodo, toggleCompletionTodo } from "../utils/Todo";
+import { deleteTodo, toggleCompletionTodo } from "../../utils/Todo.js";
 
 export default function TodoItem({ edit, todo, setTodos }) {
   const toggleCompletion = async () => {

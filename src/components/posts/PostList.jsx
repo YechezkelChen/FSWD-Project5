@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
-import PostItem from './PostItem';
+import PostItem from './PostItem.jsx';
 
-import '../pages/styles/Posts.css';
+import '../../pages/styles/Posts.css';
 
 export default function PostList({ url, userId, posts, setPosts }) {
   return (

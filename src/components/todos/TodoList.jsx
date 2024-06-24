@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-import TodoItem from "./TodoItem";
+import TodoItem from "./TodoItem.jsx";
 
-import "../pages/styles/Todo.css";
+import "../../pages/styles/Todo.css";
 
 export default function TodoList({ todos, setTodos }) {
   const [editMode, setEditMode] = useState(false);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../pages/styles/Todo.css';
+import '../../pages/styles/Todo.css';
 
 export default function TodoFilters({ todos, setTodos }) {
     const [search, setSearch] = useState('');

@@ -1,6 +1,7 @@
 import React from 'react';
-import CommentItem from './CommentItem';
-import '../pages/styles/Posts.css';
+import CommentItem from './CommentItem.jsx';
+
+import '../../pages/styles/Posts.css';
 
 export default function CommentList({ comments, userId, deleteComment, updateComment }) {
     return (

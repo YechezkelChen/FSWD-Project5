@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../pages/styles/Posts.css';
+
+import '../../pages/styles/Posts.css';
 
 export default function CommentItem({ comment, userId, deleteComment, updateComment }) {
     const [isEditing, setIsEditing] = useState(false);
