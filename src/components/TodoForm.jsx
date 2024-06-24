@@ -1,24 +1,30 @@
 import PropTypes from "prop-types";
 
-import { useState } from "react";
+import { getLoggedUser } from "../utils/loggedUsers";
+import { getUserByUsername } from "../utils/User";
+
 import "./styles/Button.css";
 import "./styles/Form.css";
 
-export default function TodoForm({ url, userId, todos, setTodos }) {
-  const [title, setTitle] = useState("");
+export default function TodoForm({ setTodos }) {
+  const url = "http://localhost:3001/todos";
+
+  const loggedUser = getLoggedUser();
+  const user = getUserByUsername(loggedUser.username);
+  const userId = user.id;
 
   const addTodo = (e) => {
     e.preventDefault();
 
+    const form = e.target;
+
+    const title = form.title.value;
+
     const newTodo = {
       userId: userId,
-      id: todos.length ? String(Number(todos[todos.length - 1].id) + 1) : 1,
       title: title,
       completed: false,
     };
-
-    setTodos((prevTodos) => [...prevTodos, newTodo]);
-    setTitle("");
 
     fetch(url, {
       method: "POST",
@@ -29,9 +35,11 @@ export default function TodoForm({ url, userId, todos, setTodos }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Todo added:", data);
+        setTodos((prev) => [...prev, data]);
       })
       .catch((error) => console.error("Error adding todo:", error));
+
+    form.reset();
   };
 
   return (
@@ -39,10 +47,9 @@ export default function TodoForm({ url, userId, todos, setTodos }) {
       <div className="form-group">
         <input
           type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
           className="form-input"
           placeholder="Enter todo title"
+          name="title"
         />
         <button type="submit" className="btn btn-blue">
           Add Todo
@@ -53,8 +60,5 @@ export default function TodoForm({ url, userId, todos, setTodos }) {
 }
 
 TodoForm.propTypes = {
-  url: PropTypes.string.isRequired,
-  userId: PropTypes.number.isRequired,
-  todos: PropTypes.array.isRequired,
   setTodos: PropTypes.func.isRequired,
 };

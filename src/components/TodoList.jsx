@@ -1,13 +1,22 @@
-import React from 'react';
-import TodoItem from './TodoItem';
-import '../pages/styles/Todo.css';
+import PropTypes from "prop-types";
 
-export default function TodoList({ url, todos, setTodos }) {
+import TodoItem from "./TodoItem";
+
+import "../pages/styles/Todo.css";
+
+export default function TodoList({ todos, setTodos }) {
   return (
-    <div className="todo-list">
-      {todos.map(todo => (
-        <TodoItem key={todo.id} url={url} todo={todo} setTodos={setTodos} />
+    <ul className="todo-list">
+      {todos.map((todo) => (
+        <li className="todo-item" key={todo.id}>
+          <TodoItem todo={todo} setTodos={setTodos} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
+
+TodoList.propTypes = {
+  todos: PropTypes.array.isRequired,
+  setTodos: PropTypes.func.isRequired,
+};

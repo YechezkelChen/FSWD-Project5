@@ -60,3 +60,12 @@
     background-color: var(--grey);
     color: var(--white);
 }
+
+
+.todo-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+}
