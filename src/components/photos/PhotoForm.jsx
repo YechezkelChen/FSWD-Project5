@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import '../../pages/styles/Albums.css';
 
-export default function PhotoForm({ albumId, addPhoto }) {
+export default function PhotoForm({ albumId }) {
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
   const [thumbnailUrl, setThumbnailUrl] = useState('');
@@ -21,6 +21,10 @@ export default function PhotoForm({ albumId, addPhoto }) {
     setUrl('');
     setThumbnailUrl('');
     setError('');
+  };
+
+  const addPhoto = (photo) => {
+    // Logic to add photo
   };
 
   return (

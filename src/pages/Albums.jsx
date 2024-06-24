@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import AlbumList from '../components/albums/AlbumList.jsx';
-import AlbumDetails from '../components/albums/AlbumDetails.jsx';
 import AlbumForm from '../components/albums/AlbumForm.jsx';
 
 import { getUserByUsername } from "../utils/User";
@@ -15,7 +14,8 @@ export default function Albums() {
 
   const loggedUser = getLoggedUser();
   const user = getUserByUsername(loggedUser.username);
-  const userId = user.id;
+  // const userId = user.id;
+  const userId = 1;
 
   useEffect(() => {
     async function fetchAlbums() {
@@ -30,8 +30,7 @@ export default function Albums() {
     <div className="albums-container">
       <h1 className="albums-header">Albums</h1>
       <AlbumForm userId={userId} setAlbums={setAlbums} />
-      <AlbumList albums={albums} setSelectedAlbum={setSelectedAlbum} />
-      {selectedAlbum && <AlbumDetails album={selectedAlbum} />}
+      <AlbumList albums={albums} selectedAlbum={selectedAlbum} setSelectedAlbum={setSelectedAlbum} />
     </div>
   );
 }

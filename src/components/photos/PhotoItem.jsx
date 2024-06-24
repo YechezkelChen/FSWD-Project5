@@ -2,9 +2,9 @@ import React from 'react';
 
 import '../../pages/styles/Albums.css';
 
-export default function PhotoItem({ photo, updatePhoto, deletePhoto }) {
+export default function PhotoItem({ photo }) {
   const handleDelete = () => {
-    deletePhoto(photo.id);
+    // Logic to handle delete
   };
 
   const handleUpdate = () => {

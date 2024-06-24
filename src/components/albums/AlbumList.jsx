@@ -3,7 +3,7 @@ import AlbumItem from './AlbumItem.jsx';
 
 import '../../pages/styles/Albums.css';
 
-export default function AlbumList({ albums, setSelectedAlbum }) {
+export default function AlbumList({ albums, selectedAlbum, setSelectedAlbum }) {
   const [search, setSearch] = useState('');
 
   const handleSearch = (e) => {
@@ -25,7 +25,12 @@ export default function AlbumList({ albums, setSelectedAlbum }) {
         className="search-input"
       />
       {filteredAlbums.map(album => (
-        <AlbumItem key={album.id} album={album} setSelectedAlbum={setSelectedAlbum} />
+        <AlbumItem
+          key={album.id}
+          album={album}
+          setSelectedAlbum={setSelectedAlbum}
+          isSelected={selectedAlbum && selectedAlbum.id === album.id}
+        />
       ))}
     </div>
   );
