@@ -23,6 +23,11 @@
     background-color: var(--red);
 }
 
+.btn-red:hover {
+    --red-dim: #cc0000;
+    background-color: var(--red-dim);
+}
+
 .btn-orange {
     background-color: var(--orange);
 }

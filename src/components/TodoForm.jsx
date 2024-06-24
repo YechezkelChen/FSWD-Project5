@@ -46,6 +46,7 @@ export default function TodoForm({ setTodos }) {
     <form className="todo-form" onSubmit={addTodo}>
       <div className="form-group">
         <input
+        id="todo-form"
           type="text"
           className="form-input"
           placeholder="Enter todo title"
