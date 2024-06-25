@@ -12,6 +12,8 @@ import "./styles/Todo.css";
 
 export default function Todos() {
   const [todos, setTodos] = useState([]);
+  const [editMode, setEditMode] = useState(false);
+  const [todo, setTodo] = useState(null);
   // const [filteredTodos, setFilteredTodos] = useState([]);
 
   const loggedUser = getLoggedUser();
@@ -31,12 +33,22 @@ export default function Todos() {
     fetchTodos();
   }, [userId]);
 
+  const handleEdit = (id) => {
+    // find the todo with the id
+    // remove it from the todos array
+    // add it to the form
+    const todo = todos.find((todo) => todo.id === id);
+    setTodos(todos.filter((todo) => todo.id !== id));
+    setEditMode(true);
+    setTodo(todo);
+  }
+
   return (
     <div className="main">
       <h1 className="todos-header">Todos</h1>
-      <TodoForm todos={todos} setTodos={setTodos} />
+      <TodoForm setTodos={setTodos} editMode={editMode} setEditMode={setEditMode} todo={todo}/>
       <TodoFilters todos={todos} setTodos={setTodos} />
-      <TodoList todos={todos} setTodos={setTodos} />
+      <TodoList todos={todos} setTodos={setTodos} handleEdit={handleEdit} />
     </div>
   );
 }

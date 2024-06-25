@@ -5,7 +5,7 @@ import TodoItem from "./TodoItem.jsx";
 
 import "../../pages/styles/Todo.css";
 
-export default function TodoList({ todos, setTodos }) {
+export default function TodoList({ todos, setTodos, handleEdit }) {
   const [editMode, setEditMode] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ export default function TodoList({ todos, setTodos }) {
       <ul className="todo-list">
         {todos.map((todo) => (
           <li className="todo-item" key={todo.id}>
-            <TodoItem edit={editMode} todo={todo} setTodos={setTodos} />
+            <TodoItem edit={editMode} todo={todo} setTodos={setTodos} handleEdit={handleEdit} />
           </li>
         ))}
       </ul>
@@ -29,4 +29,5 @@ export default function TodoList({ todos, setTodos }) {
 TodoList.propTypes = {
   todos: PropTypes.array.isRequired,
   setTodos: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
 };

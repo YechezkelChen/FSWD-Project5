@@ -4,7 +4,7 @@ import "../../pages/styles/Todo.css";
 
 import { deleteTodo, toggleCompletionTodo } from "../../utils/Todo.js";
 
-export default function TodoItem({ edit, todo, setTodos }) {
+export default function TodoItem({ edit, todo, setTodos, handleEdit }) {
   const toggleCompletion = async () => {
     setTodos((prevTodos) =>
       prevTodos.map((t) =>
@@ -13,11 +13,6 @@ export default function TodoItem({ edit, todo, setTodos }) {
     );
 
     await toggleCompletionTodo(todo);
-  };
-
-  // TODO: Implement handleEdit function
-  const handleEdit = (e) => {
-    e.preventDefault();
   };
 
   const handleDelete = async (e) => {
@@ -34,7 +29,10 @@ export default function TodoItem({ edit, todo, setTodos }) {
 
       {edit ? (
         <div className="btn-group">
-          <button className="btn btn-blue" onClick={handleEdit}>
+          <button className="btn btn-blue" onClick={(e) => {
+            e.preventDefault();
+            handleEdit(todo.id);
+          }}>
             Edit
           </button>
           <button className="btn btn-red" onClick={handleDelete}>
@@ -56,4 +54,5 @@ TodoItem.propTypes = {
   edit: PropTypes.bool,
   todo: PropTypes.object,
   setTodos: PropTypes.func,
+  handleEdit: PropTypes.func,
 };
