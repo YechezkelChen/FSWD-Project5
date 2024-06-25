@@ -12,9 +12,10 @@ import "./styles/Todo.css";
 
 export default function Todos() {
   const [todos, setTodos] = useState([]);
+  const [filteredTodos, setFilteredTodos] = useState([]);
+
   const [editMode, setEditMode] = useState(false);
   const [todo, setTodo] = useState(null);
-  // const [filteredTodos, setFilteredTodos] = useState([]);
 
   const loggedUser = getLoggedUser();
 
@@ -28,6 +29,7 @@ export default function Todos() {
     async function fetchTodos() {
       const response = await getTodos(userId);
       setTodos(response.data);
+      setFilteredTodos(response.data);
     }
 
     fetchTodos();
@@ -46,9 +48,17 @@ export default function Todos() {
   return (
     <div className="main">
       <h1 className="todos-header">Todos</h1>
-      <TodoForm setTodos={setTodos} editMode={editMode} setEditMode={setEditMode} todo={todo}/>
-      <TodoFilters todos={todos} setTodos={setTodos} />
-      <TodoList todos={todos} setTodos={setTodos} handleEdit={handleEdit} />
+      <TodoForm
+        setTodos={setTodos}
+        editMode={editMode}
+        setEditMode={setEditMode}
+        todo={todo}
+      />
+      <TodoFilters
+        todos={todos}
+        setFilteredTodos={setFilteredTodos}
+      />
+      <TodoList todos={filteredTodos} setTodos={setFilteredTodos} handleEdit={handleEdit} />
     </div>
   );
 }
