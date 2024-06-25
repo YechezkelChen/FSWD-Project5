@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import AlbumList from '../components/albums/AlbumList.jsx';
 import AlbumForm from '../components/albums/AlbumForm.jsx';
 
@@ -14,8 +14,8 @@ export default function Albums() {
 
   const loggedUser = getLoggedUser();
   const user = getUserByUsername(loggedUser.username);
-  // const userId = user.id;
-  const userId = 1;
+  const userId = user.id;
+  // const userId = 1;
 
   useEffect(() => {
     async function fetchAlbums() {

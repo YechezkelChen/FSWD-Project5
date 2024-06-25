@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 
 import PostForm from "../components/posts/PostForm.jsx";
 import PostList from "../components/posts/PostList.jsx";
-import SearchPost from "../components/SearchPost";
+import SearchPost from "../components/posts/SearchPost";
 
 import "../components/styles/Button.css";
 import "../components/styles/Form.css";

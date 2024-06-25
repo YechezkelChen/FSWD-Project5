@@ -15,8 +15,12 @@ export default function Todos() {
   // const [filteredTodos, setFilteredTodos] = useState([]);
 
   const loggedUser = getLoggedUser();
+
+  // fetch the user from the database using the getUserByUsername function,
+  //the function is asynchronous so we need to use the await keyword
   const user = getUserByUsername(loggedUser.username);
   const userId = user.id;
+
 
   useEffect(() => {
     async function fetchTodos() {

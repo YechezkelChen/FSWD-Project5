@@ -1,8 +1,8 @@
-import "./styles/Navbar.css";
+import "../styles/Navbar.css";
 
 
-import { pages as allPages } from "../data/pages.js";
-import { getLoggedUser } from "../utils/loggedUsers.js";
+import { pages as allPages } from "../../data/pages.js";
+import { getLoggedUser } from "../../utils/loggedUsers.js";
 
 
 import { Link } from "react-router-dom";

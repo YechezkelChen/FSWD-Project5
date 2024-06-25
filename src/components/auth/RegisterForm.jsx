@@ -1,7 +1,7 @@
-import "./styles/Button.css";
-import "./styles/Form.css";
+import "../styles/Button.css";
+import "../styles/Form.css";
 
-import { registerUser } from "../utils/loggedUsers";
+import { registerUser } from "../../utils/loggedUsers.js";
 
 export default function RegisterForm() {
   const handleSubmit = async (e) => {
@@ -10,7 +10,9 @@ export default function RegisterForm() {
     // Get the form values
     const username = document.getElementById("register-username").value;
     const password = document.getElementById("register-password").value;
-    const confirmPassword = document.getElementById("register-confirm-password").value;
+    const confirmPassword = document.getElementById(
+      "register-confirm-password"
+    ).value;
 
     // Check if the password and confirm password match
     if (password !== confirmPassword) {
@@ -18,14 +20,14 @@ export default function RegisterForm() {
       return;
     }
 
-    // create a new user object and 
+    // create a new user object and
     // 1. store it in the local storage as the current user
     // 2. store it in the users array using the addUser function
 
     // create a new user object
     const user = {
       username,
-      password
+      password,
     };
 
     // register the user return the user object so await for the response

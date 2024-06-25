@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import ProfileForm from "../components/ProfileForm.jsx";
+import ProfileForm from "../components/auth/ProfileForm.jsx";
 
 import { getLoggedUser } from "../utils/loggedUsers";
 import { getUserByUsername } from "../utils/User";

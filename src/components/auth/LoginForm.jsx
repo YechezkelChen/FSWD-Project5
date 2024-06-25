@@ -1,9 +1,9 @@
-import "./styles/Button.css";
-import "./styles/Form.css";
+import "../styles/Button.css";
+import "../styles/Form.css";
 
 // getting the needed function from the utils
-import { loginUser, getUserByName } from "../utils/loggedUsers";
-import hash from "../utils/hash";
+import { loginUser, getUserByName } from "../../utils/loggedUsers";
+import hash from "../../utils/hash";
 
 // The login form has
 // - username field

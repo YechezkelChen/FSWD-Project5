@@ -1,5 +1,5 @@
-import Footer from "./Footer.jsx";
-import Navbar from "./Navbar.jsx";
+import Footer from "../general/Footer.jsx";
+import Navbar from "../general/Navbar.jsx";
 // import MessageDisplay from "./MessageDisplay.jsx";
 
 // the message display is a component that will be use by different pages and components

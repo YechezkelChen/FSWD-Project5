@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { createUser } from "../utils/User.js";
+import { createUser } from "../../utils/User.js";
 
 export default function ProfileForm(setUser, username) {
   const handleSubmit = (event) => {

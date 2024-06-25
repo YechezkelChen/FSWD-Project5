@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Layout from "./components/Layout.jsx";
+import Layout from "./components/general/Layout.jsx";
 
 import Albums from "./pages/Albums.jsx";
 import Home from "./pages/Home.jsx";
