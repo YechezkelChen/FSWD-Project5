@@ -14,8 +14,8 @@ export default function Albums() {
 
   const loggedUser = getLoggedUser();
   const user = getUserByUsername(loggedUser.username);
-  const userId = user.id;
-  // const userId = 1;
+  // const userId = user.id;
+  const userId = 1;
 
   useEffect(() => {
     async function fetchAlbums() {

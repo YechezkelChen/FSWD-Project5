@@ -8,8 +8,6 @@ import "../styles/Button.css";
 import "../styles/Form.css";
 
 export default function TodoForm({ setTodos, editMode, setEditMode, todo }) {
-  // const url = "http://localhost:3001/todos";
-
   const loggedUser = getLoggedUser();
   const user = getUserByUsername(loggedUser.username);
   const userId = user.id;
