@@ -7,18 +7,19 @@ import CommentList from "../comments/CommentList.jsx";
 
 import "../../pages/styles/Posts.css";
 
-export default function PostItem({ post, userId, setPosts }) {
+// import { getPostsComments } from "../../utils/Comments.js";
+import { getPostsByUser } from '../../utils/Post.js';
+
+export default function PostItem({ post, userId }) {
+
   const [showContent, setShowContent] = useState(false);
   const [comments, setComments] = useState([]);
 
-  const toggleContent = () => {
+  const toggleContent = async () => {
     setShowContent(!showContent);
     if (!showContent) {
-      // Fetch comments when the content is shown
-      fetch(`/api/posts/${post.id}/comments`)
-        .then((response) => response.json())
-        .then((data) => setComments(data))
-        .catch((error) => console.error("Error fetching comments:", error));
+      const response = await getPostsByUser(post.id);
+      setComments(response.data);
     }
   };
 
@@ -93,5 +94,4 @@ export default function PostItem({ post, userId, setPosts }) {
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
   userId: PropTypes.number.isRequired,
-  setPosts: PropTypes.func.isRequired,
 };

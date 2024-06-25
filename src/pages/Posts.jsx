@@ -16,26 +16,29 @@ import "../components/styles/Button.css";
 import "../components/styles/Form.css";
 import "./styles/Posts.css";
 
-// import { getLoggedUser } from "../utils/loggedUsers.js";
+import { getPostsByUser } from "../utils/Post.js";
+import { getUserByUsername } from "../utils/User.js";
+import { getLoggedUser } from "../utils/loggedUsers.js";
 
 export default function Posts() {
-  // const url = 'https://jsonplaceholder.typicode.com/todos'
-  const url = "http://localhost:3001/posts";
+
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
 
-  // const user = getLoggedUser();
-  const userId = 1; //TODO: to change to real userId
+  const loggedUser = getLoggedUser();
+  const user = getUserByUsername(loggedUser);
+  const userId = user.id;
+  // const userId = 1;
 
   useEffect(() => {
-    fetch(`${url}?userId=${userId}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setPosts(data);
-        setFilteredPosts(data);
-      })
-      .catch((error) => console.error("Error reading posts:", error));
-  }, [posts]); //TODO: to think how to drop this, because is fuck the serch
+    const fetchPosts = async () => {
+      const response = await getPostsByUser(userId);
+      setPosts(response.data);
+      setFilteredPosts(response.data);
+    };
+
+    fetchPosts();
+  }, [userId]); 
 
   return (
     <div className="main">
@@ -43,7 +46,6 @@ export default function Posts() {
       <PostForm />
       <SearchPost posts={posts} setPosts={setFilteredPosts} />
       <PostList
-        url={url}
         userId={userId}
         posts={filteredPosts}
         setPosts={setPosts}

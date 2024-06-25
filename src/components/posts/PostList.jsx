@@ -4,18 +4,17 @@ import PostItem from './PostItem.jsx';
 
 import '../../pages/styles/Posts.css';
 
-export default function PostList({ url, userId, posts, setPosts }) {
+export default function PostList({ userId, posts, setPosts }) {
   return (
     <div className="post-list">
       {posts.map(post => (
-        <PostItem key={post.id} url={url} userId={userId} post={post} setPosts={setPosts} />
+        <PostItem key={post.id} userId={userId} post={post} setPosts={setPosts} />
       ))}
     </div>
   );
 }
 
 PostList.propTypes = {
-  url: PropTypes.string.isRequired,
   userId: PropTypes.number.isRequired,
   posts: PropTypes.array.isRequired,
   setPosts: PropTypes.func.isRequired,
