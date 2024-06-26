@@ -145,7 +145,7 @@
     border: none;
     outline: none;
 
-    border: 1px solid var(--grey);
+    border: 1px solid var(--color-dark-sc);
     border-radius: var(--border-radius);
 
     padding: 0.5rem;
@@ -163,6 +163,35 @@
 
     gap: .2rem;
 
-    padding: 1rem;
+    width: 100%;
+
+    /* padding: 1rem; */
     /* margin: 0 20%; */
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%;
+
+    margin-bottom: .5rem;
+}
+
+.header-section h1 {
+    padding: 0;
+    margin: 0;
+}
+
+.comments-header {
+    width: 100%;
+
+    border-bottom: 1px solid var(--bg-primary);
+
+    padding-bottom: .5rem;
+}
+
+.post-comments {
+    width: 100%;
 }

@@ -21,35 +21,37 @@ import { getUserByUsername } from "../utils/User.js";
 import { getLoggedUser } from "../utils/loggedUsers.js";
 
 export default function Posts() {
-
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
-
-  const loggedUser = getLoggedUser();
-  const user = getUserByUsername(loggedUser);
-  let userId = user.id;
-  userId = 1;
+  const [userId, setUserId] = useState(null);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const fetchPosts = async () => {
+      const loggedUser = getLoggedUser();
+      const user = await getUserByUsername(loggedUser.username);
+      const userId = user[0].id;
+
       const response = await getPostsByUser(userId);
       setPosts(response.data);
       setFilteredPosts(response.data);
+      setUserId(userId);
     };
 
     fetchPosts();
-  }, [userId]); 
+  }, []);
 
   return (
     <div className="main">
-      <h1 className="posts-header">Posts</h1>
-      <PostForm />
+      <div className="header-section">
+        <h1 className="posts-header">Posts</h1>
+        <button className="btn btn-blue" onClick={() => setShowForm(!showForm)}>
+          {showForm ? "Show" : "Hide"}
+        </button>
+      </div>
+      {showForm && <PostForm setPosts={setPosts} />}
       <SearchPost posts={posts} setPosts={setFilteredPosts} />
-      <PostList
-        userId={userId}
-        posts={filteredPosts}
-        setPosts={setPosts}
-      />
+      <PostList userId={userId} posts={filteredPosts} setPosts={setPosts} />
     </div>
   );
 }

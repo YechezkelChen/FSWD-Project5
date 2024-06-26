@@ -72,7 +72,7 @@ export default function PostItem({ post, userId }) {
       </span>
       <button className='btn btn-blue btn-sm' onClick={toggleContent}>{showContent ? "Hide" : "Show"}</button>
       {showContent && (
-        <div>
+        <div className='post-comments'>
           <span>{post.body}</span>
           <CommentList
             comments={comments}

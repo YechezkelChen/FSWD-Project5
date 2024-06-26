@@ -15,7 +15,7 @@ export default function PostList({ userId, posts, setPosts }) {
 }
 
 PostList.propTypes = {
-  userId: PropTypes.number.isRequired,
+  userId: PropTypes.string,
   posts: PropTypes.array.isRequired,
   setPosts: PropTypes.func.isRequired,
 };

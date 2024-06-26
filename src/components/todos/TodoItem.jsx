@@ -29,13 +29,16 @@ export default function TodoItem({ edit, todo, setTodos, handleEdit }) {
 
       {edit ? (
         <div className="btn-group">
-          <button className="btn btn-blue" onClick={(e) => {
-            e.preventDefault();
-            handleEdit(todo.id);
-          }}>
+          <button
+            className="btn btn-blue btn-sm"
+            onClick={(e) => {
+              e.preventDefault();
+              handleEdit(todo.id);
+            }}
+          >
             Edit
           </button>
-          <button className="btn btn-red" onClick={handleDelete}>
+          <button className="btn btn-red btn-sm" onClick={handleDelete}>
             Delete
           </button>
         </div>
