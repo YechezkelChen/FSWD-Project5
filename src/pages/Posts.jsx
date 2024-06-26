@@ -29,10 +29,16 @@ export default function Posts() {
   useEffect(() => {
     const fetchPosts = async () => {
       const loggedUser = getLoggedUser();
-      const user = await getUserByUsername(loggedUser.username);
-      const userId = user[0].id;
 
-      console.log(userId)
+      if (!loggedUser) {
+        // go to the login page
+        window.location.href = "/login";
+        return;
+      }
+
+      const users = await getUserByUsername(loggedUser.username);
+      setUserId(users[0].id);
+      
 
       const response = await getPostsByUser(userId);
       setPosts(response.data);

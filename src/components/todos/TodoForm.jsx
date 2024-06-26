@@ -1,16 +1,11 @@
 import PropTypes from "prop-types";
 
-import { getLoggedUser } from "../../utils/loggedUsers.js";
-import { getUserByUsername } from "../../utils/User.js";
 import { createTodo, updateTodo } from "../../utils/Todo.js";
 
 import "../styles/Button.css";
 import "../styles/Form.css";
 
-export default function TodoForm({ setTodos, editMode, setEditMode, todo }) {
-  const loggedUser = getLoggedUser();
-  const user = getUserByUsername(loggedUser.username);
-  const userId = user.id;
+export default function TodoForm({userId, setTodos, editMode, setEditMode, todo }) {
 
   if(editMode) {
     // check if the todo is not null
@@ -84,6 +79,7 @@ export default function TodoForm({ setTodos, editMode, setEditMode, todo }) {
 }
 
 TodoForm.propTypes = {
+  userId: PropTypes.string.isRequired,
   setTodos: PropTypes.func.isRequired,
   editMode: PropTypes.bool.isRequired,
   todo: PropTypes.object,
