@@ -18,6 +18,8 @@
   --bg-secondary: var(--color-dark-sc);
   --text-primary: var(--white);
 
+  --bg-indigo: #505dd3; /* #505dd3 */
+
   --border-radius: 5px;
 
   --white-dim: rgba(255, 255, 255, 0.7);

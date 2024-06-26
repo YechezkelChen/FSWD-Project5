@@ -6,7 +6,7 @@ import "../styles/Posts.css";
 
 import { createPost } from "../../utils/Post";
 
-export default function PostForm({ setPosts }) {
+export default function PostForm({ setPosts, userId }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -15,6 +15,7 @@ export default function PostForm({ setPosts }) {
     const post = {
       title: form.title.value,
       body: form.body.value,
+      userId: userId,
     };
 
     const response = await createPost(post);
@@ -56,4 +57,5 @@ export default function PostForm({ setPosts }) {
 
 PostForm.propTypes = {
   setPosts: PropTypes.func.isRequired,
+  userId: PropTypes.string,
 };

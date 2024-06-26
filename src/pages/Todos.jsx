@@ -47,6 +47,7 @@ export default function Todos() {
     // add it to the form
     const todo = todos.find((todo) => todo.id === id);
     setTodos(todos.filter((todo) => todo.id !== id));
+    setFilteredTodos(filteredTodos.filter((todo) => todo.id !== id));
     setEditMode(true);
     setTodo(todo);
   };
@@ -57,6 +58,7 @@ export default function Todos() {
       <TodoForm
         userId={userId}
         setTodos={setTodos}
+        setFilteredTodos={setFilteredTodos}
         editMode={editMode}
         setEditMode={setEditMode}
         todo={todo}

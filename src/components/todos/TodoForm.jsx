@@ -5,7 +5,7 @@ import { createTodo, updateTodo } from "../../utils/Todo.js";
 import "../styles/Button.css";
 import "../styles/Form.css";
 
-export default function TodoForm({userId, setTodos, editMode, setEditMode, todo }) {
+export default function TodoForm({userId, setTodos, setFilteredTodos, editMode, setEditMode, todo }) {
 
   if(editMode) {
     // check if the todo is not null
@@ -29,8 +29,9 @@ export default function TodoForm({userId, setTodos, editMode, setEditMode, todo 
     };
 
     const response = await createTodo(newTodo);
-    
+
     setTodos((prev) => [...prev, response.data]);
+    setFilteredTodos((prev) => [...prev, response.data]);
 
     form.reset();
   };
@@ -52,6 +53,7 @@ export default function TodoForm({userId, setTodos, editMode, setEditMode, todo 
     const response = await updateTodo(updatedTodo);
     
     setTodos((prev) => [...prev, response.data]);
+    setFilteredTodos((prev) => [...prev, response.data]);
     setEditMode(false);
 
     form.reset();
@@ -79,8 +81,9 @@ export default function TodoForm({userId, setTodos, editMode, setEditMode, todo 
 }
 
 TodoForm.propTypes = {
-  userId: PropTypes.string.isRequired,
+  userId: PropTypes.string,
   setTodos: PropTypes.func.isRequired,
+  setFilteredTodos: PropTypes.func.isRequired,
   editMode: PropTypes.bool.isRequired,
   todo: PropTypes.object,
   setEditMode: PropTypes.func.isRequired,

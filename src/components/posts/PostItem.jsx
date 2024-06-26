@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 
@@ -17,6 +18,7 @@ import {
 
 export default function PostItem({ post, userId }) {
   const [showContent, setShowContent] = useState(false);
+  const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -55,29 +57,43 @@ export default function PostItem({ post, userId }) {
     );
   };
 
-
   return (
     <div className="post-item">
-      <span>
-        {post.id}. {post.title}
-      </span>
-      <button className="btn btn-blue btn-sm" onClick={toggleContent}>
-        {showContent ? "Hide" : "Show"}
-      </button>
+      {userId == post.userId && <span className="post-user">You</span>}
+      <div className="post-body-c">
+        <p>
+          <Link className="post-id" to={`/posts/${post.id}`}>{post.id}</Link>. {post.title}
+        </p>
+        <button className="btn btn-blue btn-sm" onClick={toggleContent}>
+          {showContent ? "Hide" : "Show"}
+        </button>
+      </div>
       {showContent && (
         <div className="post-comments">
-          <span>{post.body}</span>
-          <CommentList
-            comments={comments}
-            userId={userId}
-            deleteComment={handleDeleteComment}
-            updateComment={handleUpdateComment}
-          />
-          <CommentForm
-            userId={userId}
-            postId={post.id}
-            addComment={handleAddComment}
-          />
+          <div className="post-body-c">
+            <span className="post-body">{post.body}</span>
+            <button
+              className="btn btn-blue btn-sm"
+              onClick={() => setShowComments(!showComments)}
+            >
+              {showComments ? "Hide" : "Show"} Comments
+            </button>
+          </div>
+          {showComments && (
+            <>
+              <CommentList
+                comments={comments}
+                userId={userId}
+                deleteComment={handleDeleteComment}
+                updateComment={handleUpdateComment}
+              />
+              <CommentForm
+                userId={userId}
+                postId={post.id}
+                addComment={handleAddComment}
+              />
+            </>
+          )}
         </div>
       )}
     </div>
@@ -86,5 +102,5 @@ export default function PostItem({ post, userId }) {
 
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
-  userId: PropTypes.string.isRequired,
+  userId: PropTypes.string,
 };
