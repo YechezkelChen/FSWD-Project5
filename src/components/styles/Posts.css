@@ -6,10 +6,6 @@
     margin-bottom: 1rem;
 }
 
-.input-group {
-    width: 100%;
-}
-
 .form-header {
     margin-bottom: 1rem;
     padding-bottom: .5rem;
@@ -21,4 +17,12 @@
 
 .form-input {
     font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.post-filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }

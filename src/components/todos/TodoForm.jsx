@@ -60,13 +60,13 @@ export default function TodoForm({userId, setTodos, setFilteredTodos, editMode, 
   }
 
   return (
-    <form className="todo-form" onSubmit={
-      editMode ? handleEditTodo : handleAddTodo
-    }
+    <form
+      className="todo-form"
+      onSubmit={editMode ? handleEditTodo : handleAddTodo}
     >
-      <div className="form-group">
+      <div className="form-filter">
         <input
-        id="todo-form"
+          id="todo-form"
           type="text"
           className="form-input"
           placeholder="Enter todo title"

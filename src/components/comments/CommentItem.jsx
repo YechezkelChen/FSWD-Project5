@@ -42,7 +42,7 @@ export default function CommentItem({
         </>
       ) : (
         <>
-          <span>{comment.body}</span>
+          <span className={(comment.userId === userId) && "comment-user"}>{comment.body}</span>
           {comment.userId === userId && (
             <div className="btn-group">
               <button

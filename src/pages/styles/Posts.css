@@ -186,3 +186,14 @@
   color: var(--blue);
   text-decoration: none;
 }
+
+.comment-user {
+  color: var(--white);
+  background-color: var(--indigo);
+
+  font-size: 1rem !important;
+
+  padding: 0.1rem 0.5rem;
+
+  border-radius: var(--border-radius);
+}

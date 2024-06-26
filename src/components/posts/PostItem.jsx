@@ -7,8 +7,10 @@ import CommentForm from "../comments/CommentForm.jsx";
 import CommentList from "../comments/CommentList.jsx";
 
 import "../../pages/styles/Posts.css";
+import "../styles/Button.css";
 
 import { getPostsComments } from "../../utils/Comments.js";
+import { deletePost } from "../../utils/Post.js";
 
 import {
   addComment,
@@ -16,7 +18,7 @@ import {
   updateComment,
 } from "../../utils/Comments.js";
 
-export default function PostItem({ post, userId }) {
+export default function PostItem({ posts, setPosts, setFilteredPosts, post, userId }) {
   const [showContent, setShowContent] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState([]);
@@ -57,16 +59,32 @@ export default function PostItem({ post, userId }) {
     );
   };
 
+  const handleDeletePost = async () => {
+    await deletePost(post.id);
+    setFilteredPosts(posts.filter((post_) => post_.id !== post.id));
+    setPosts(posts.filter((post_) => post_.id !== post.id));
+  };
+
   return (
     <div className="post-item">
       {userId == post.userId && <span className="post-user">You</span>}
       <div className="post-body-c">
         <p>
-          <Link className="post-id" to={`/posts/${post.id}`}>{post.id}</Link>. {post.title}
+          <Link className="post-id" to={`/posts/${post.id}`}>
+            {post.id}
+          </Link>
+          . {post.title}
         </p>
-        <button className="btn btn-blue btn-sm" onClick={toggleContent}>
-          {showContent ? "Hide" : "Show"}
-        </button>
+        <div className="btn-group">
+          {userId == post.userId && (
+            <button className="btn btn-red btn-sm" onClick={handleDeletePost}>
+              Delete
+            </button>
+          )}
+          <button className="btn btn-blue btn-sm" onClick={toggleContent}>
+            {showContent ? "Hide" : "Show"}
+          </button>
+        </div>
       </div>
       {showContent && (
         <div className="post-comments">
@@ -101,6 +119,9 @@ export default function PostItem({ post, userId }) {
 }
 
 PostItem.propTypes = {
+  posts: PropTypes.array.isRequired,
+  setPosts: PropTypes.func.isRequired,
+  setFilteredPosts: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
   userId: PropTypes.string,
 };

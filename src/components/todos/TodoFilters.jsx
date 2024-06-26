@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 
 import "../../pages/styles/Todo.css";
+import "../../components/styles/Form.css";
 
 export default function TodoFilters({
   todos,
@@ -43,20 +44,28 @@ export default function TodoFilters({
   };
 
   return (
-    <div className="todo-filters">
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearch} className="form-filter">
         <input
           type="text"
           placeholder="Search..."
+          className="form-input"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+        <select
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          className="form-select"
+        >
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="incomplete">Incomplete</option>
         </select>
-        <select value={sort} onChange={(e) => setSort(e.target.value)}>
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+          className="form-select"
+        >
           <option value="serial">Serial</option>
           <option value="alphabetical">Alphabetical</option>
           <option value="random">Random</option>
@@ -65,7 +74,6 @@ export default function TodoFilters({
           Search
         </button>
       </form>
-    </div>
   );
 }
 
