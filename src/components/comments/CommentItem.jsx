@@ -1,39 +1,73 @@
-import React, { useState } from 'react';
+import PropTypes from "prop-types";
 
-import '../../pages/styles/Posts.css';
+import { useState } from "react";
 
-export default function CommentItem({ comment, userId, deleteComment, updateComment }) {
-    const [isEditing, setIsEditing] = useState(false);
-    const [editText, setEditText] = useState(comment.body);
+import "../../pages/styles/Posts.css";
 
-    const handleUpdate = () => {
-        updateComment(comment.id, editText);
-        setIsEditing(false);
-    };
+export default function CommentItem({
+  comment,
+  userId,
+  deleteComment,
+  updateComment,
+}) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editText, setEditText] = useState(comment.body);
 
-    return (
-        <div className="comment-item">
-            {isEditing ? (
-                <>
-                    <input
-                        type="text"
-                        value={editText}
-                        onChange={(e) => setEditText(e.target.value)}
-                    />
-                    <button onClick={handleUpdate}>Save</button>
-                    <button onClick={() => setIsEditing(false)}>Cancel</button>
-                </>
-            ) : (
-                <>
-                    <span>{comment.body}</span>
-                    {comment.userId === userId && (
-                        <>
-                            <button onClick={() => setIsEditing(true)}>Edit</button>
-                            <button onClick={() => deleteComment(comment.id)}>Delete</button>
-                        </>
-                    )}
-                </>
-            )}
-        </div>
-    );
+  const handleUpdate = () => {
+    updateComment(comment.id, editText);
+    setIsEditing(false);
+  };
+
+  return (
+    <div className="comment-item">
+      {isEditing ? (
+        <>
+          <textarea
+            className="comment-input"
+            type="text"
+            value={editText}
+            onChange={(e) => setEditText(e.target.value)}
+          />
+          <div className="btn-group">
+            <button className="btn btn-sm btn-green" onClick={handleUpdate}>
+              Save
+            </button>
+            <button
+              className="btn btn-sm btn-red"
+              onClick={() => setIsEditing(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+          <span>{comment.body}</span>
+          {comment.userId === userId && (
+            <div className="btn-group">
+              <button
+                className="btn btn-sm btn-blue"
+                onClick={() => setIsEditing(true)}
+              >
+                Edit
+              </button>
+              <button
+                className="btn btn-sm btn-red"
+                onClick={() => deleteComment(comment.id)}
+              >
+                Delete
+              </button>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
 }
+
+CommentItem.propTypes = {
+  comment: PropTypes.object.isRequired,
+  userId: PropTypes.number.isRequired,
+  deleteComment: PropTypes.func.isRequired,
+  updateComment: PropTypes.func.isRequired,
+};

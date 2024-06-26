@@ -70,7 +70,7 @@ export default function PostItem({ post, userId }) {
       <span>
         {post.id}. {post.title}
       </span>
-      <button onClick={toggleContent}>{showContent ? "Hide" : "Show"}</button>
+      <button className='btn btn-blue btn-sm' onClick={toggleContent}>{showContent ? "Hide" : "Show"}</button>
       {showContent && (
         <div>
           <span>{post.body}</span>

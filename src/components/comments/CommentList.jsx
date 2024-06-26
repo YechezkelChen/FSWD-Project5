@@ -1,4 +1,5 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+
 import CommentItem from './CommentItem.jsx';
 
 import '../../pages/styles/Posts.css';
@@ -19,3 +20,10 @@ export default function CommentList({ comments, userId, deleteComment, updateCom
         </div>
     );
 }
+
+CommentList.propTypes = {
+    comments: PropTypes.array.isRequired,
+    userId: PropTypes.number.isRequired,
+    deleteComment: PropTypes.func.isRequired,
+    updateComment: PropTypes.func.isRequired,
+};

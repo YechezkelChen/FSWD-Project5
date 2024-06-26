@@ -27,8 +27,8 @@ export default function Posts() {
 
   const loggedUser = getLoggedUser();
   const user = getUserByUsername(loggedUser);
-  const userId = user.id;
-  // const userId = 1;
+  let userId = user.id;
+  userId = 1;
 
   useEffect(() => {
     const fetchPosts = async () => {

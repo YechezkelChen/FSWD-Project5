@@ -1,37 +1,60 @@
 .btn {
-    border: none;
-    color: white;
-    padding: .5rem 1rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: var(--border-radius);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: var(--border-radius);
 }
 
 .btn-blue {
-    background-color: var(--blue);
+  background-color: var(--blue);
 }
 
 .btn-blue:hover {
-    --blue-dim: #0077cc;
-    background-color: var(--blue-dim);
+  --blue-dim: #0077cc;
+  background-color: var(--blue-dim);
 }
 
 .btn-red {
-    background-color: var(--red);
+  background-color: var(--red);
 }
 
 .btn-red:hover {
-    --red-dim: #cc0000;
-    background-color: var(--red-dim);
+  --red-dim: #cc0000;
+  background-color: var(--red-dim);
 }
 
 .btn-orange {
-    background-color: var(--orange);
+  background-color: var(--orange);
 }
 
 .btn-green {
-    background-color: var(--green);
+  background-color: var(--green);
+}
+
+.btn-green:hover {
+  --green-dim: #00cc00;
+  background-color: var(--green-dim);
+}
+
+.btn-sm {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+}
+
+.btn-bg {
+  font-size: 1.5rem;
+  padding: 0.7rem 1.5rem;
+}
+
+.btn-group {
+    display: flex;
+
+    gap: 0.2rem;
+
+    margin: 0 .2rem;
 }
