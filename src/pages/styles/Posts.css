@@ -36,39 +36,6 @@
   margin-top: 1rem;
 }
 
-.post-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.post-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
-
-  width: 100%;
-
-  padding: 0.5rem 1rem;
-
-  margin: 0.5rem 0;
-
-  gap: 0.5rem;
-
-  background-color: var(--grey);
-  border-radius: var(--border-radius);
-}
-
-.post-item-content {
-  font-size: 1.2rem;
-  color: var(--white);
-}
-
-.comment-section {
-  margin-top: 1rem;
-}
-
 .comment-item {
   display: flex;
   justify-content: space-between;
@@ -141,50 +108,8 @@
   margin: 0;
 }
 
-.comments-header {
-  width: 100%;
-
-  border-bottom: 1px solid var(--bg-primary);
-
-  padding-bottom: 0.5rem;
-}
-
-.post-comments {
-  width: 100%;
-}
-
-.post-user {
-  color: var(--white);
-  background-color: var(--bg-indigo);
-
-  font-size: 1rem !important;
-
-  padding: 0.1rem 0.5rem;
-
-  border-radius: var(--border-radius);
-}
-
 .subheader {
   margin: 1rem 0;
-}
-
-.post-body {
-  font-size: 0.8rem;
-  color: var(--white-dim);
-  margin: 1rem 0;
-}
-
-.post-body-c {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-}
-
-.post-id {
-  color: var(--blue);
-  text-decoration: none;
 }
 
 .comment-user {

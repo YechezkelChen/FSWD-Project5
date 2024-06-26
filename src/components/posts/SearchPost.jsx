@@ -21,10 +21,6 @@ export default function SearchPost({ posts, setPosts }) {
           post.id.toString().includes(search)
         );
       }
-      // filteredPosts = filteredPosts.filter(
-      //   (post) =>
-      //     post.title.includes(search) || post.id.toString().includes(search)
-      // );
     }
 
     setPosts(filteredPosts);

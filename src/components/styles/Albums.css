@@ -20,20 +20,20 @@
     margin-bottom: 0;
 }
 
-.post-filters {
+.album-filters {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.post-list {
+.album-list {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.post-item {
+.album-item {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -51,7 +51,7 @@
     border-radius: var(--border-radius);
 }
 
-.post-user {
+.album-user {
     color: var(--white);
     background-color: var(--bg-indigo);
 
@@ -62,13 +62,13 @@
     border-radius: var(--border-radius);
 }
 
-.post-body {
+.album-body {
     font-size: 0.8rem;
     color: var(--white-dim);
     margin: 1rem 0;
 }
 
-.post-body-c {
+.album-body-c {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,20 +76,20 @@
     width: 100%;
 }
 
-.post-id {
+.album-id {
     color: var(--blue);
     text-decoration: none;
 }
 
-.post-comments {
+.album-photos {
     width: 100%;
 }
 
-.comment-section {
+.photo-section {
     margin-top: 1rem;
 }
 
-.comments-header {
+.photos-header {
     width: 100%;
 
     border-bottom: 1px solid var(--bg-primary);

@@ -1,37 +1,34 @@
-import React, { useState } from 'react';
-import AlbumItem from './AlbumItem.jsx';
+import PropTypes from "prop-types";
 
-import '../../pages/styles/Albums.css';
+import AlbumItem from "./AlbumItem.jsx";
 
-export default function AlbumList({ albums, selectedAlbum, setSelectedAlbum }) {
-  const [search, setSearch] = useState('');
+import "../styles/Albums.css";
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const filteredAlbums = albums.filter(album =>
-    album.title.toLowerCase().includes(search.toLowerCase()) ||
-    album.id.toString().includes(search)
-  );
-
+export default function AlbumList({
+  userId,
+  albums,
+  setAlbums,
+  setFilteredAlbums,
+}) {
   return (
     <div className="album-list">
-      <input
-        type="text"
-        value={search}
-        onChange={handleSearch}
-        placeholder="Search albums..."
-        className="search-input"
-      />
-      {filteredAlbums.map(album => (
+      {albums.map((album) => (
         <AlbumItem
           key={album.id}
+          userId={userId}
           album={album}
-          setSelectedAlbum={setSelectedAlbum}
-          isSelected={selectedAlbum && selectedAlbum.id === album.id}
+          setAlbums={setAlbums}
+          setFilteredAlbums={setFilteredAlbums}
+          albums={albums}
         />
       ))}
     </div>
   );
 }
+
+AlbumList.propTypes = {
+  userId: PropTypes.string,
+  albums: PropTypes.array.isRequired,
+  setAlbums: PropTypes.func.isRequired,
+  setFilteredAlbums: PropTypes.func.isRequired,
+};

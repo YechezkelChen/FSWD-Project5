@@ -1,49 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
 import PhotoItem from './PhotoItem.jsx';
-import PhotoForm from './PhotoForm.jsx';
 
-import { getPhotos } from '../../utils/Photos.js'
+import '../styles/Albums.css';
 
-import '../../pages/styles/Albums.css';
 
-export default function PhotoList({ album }) {
-  const [photos, setPhotos] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const [editMode, setEditMode] = useState(false);
-  const [photo, setPhoto] = useState(null);
-
-  async function fetchPhotos() {
-    const response = await getPhotos(album.id, currentIndex, currentIndex + 10);
-    setPhotos(prevPhotos => [...prevPhotos, ...response.data])
-    setCurrentIndex(prevIndex => prevIndex + 10);
-  }
-
-  const handleEdit = (id) => {
-    const photo = photos.find((photo) => photo.id === id);
-    setEditMode(true);
-    setPhoto(photo);
-  }
+export default function PhotoList({ photos, userId, deletePhoto, updatePhoto }) {
 
   return (
-    <div className="photo-list">
-      <PhotoForm photo={photo} setPhotos={setPhotos} editMode={editMode} setEditMode={setEditMode} />
-      <div className="header-btn">
-        <button className="btn btn-blue" onClick={() => {
-          const photo = photos.find((photo) => photo.id === id);
-          setEditMode(!editMode)
-          setPhoto(photo);
-        }
-        }>
-          {editMode ? "View" : "Edit"}
-        </button>
-      </div>
+    <div className="photo-section">
+      <h3 className='photos-header'>Photos</h3>
       {photos.map(photo => (
-        <PhotoItem key={photo.id} photo={photo} handleEdit={handleEdit} setPhotos={setPhotos} editMode={editMode} setEditMode={setEditMode} />
+        <PhotoItem
+          key={photo.id}
+          photo={photo}
+          userId={userId}
+          deletePhoto={deletePhoto}
+          updatePhoto={updatePhoto}
+        />
       ))}
-      {currentIndex <= photos.length && (
-        <button className="btn btn-blue" onClick={fetchPhotos}>Load More</button>
-      )}
     </div>
   );
 }
+
+PhotoList.propTypes = {
+  photos: PropTypes.array.isRequired,
+  userId: PropTypes.string.isRequired,
+  deletePhoto: PropTypes.func.isRequired,
+  updatePhoto: PropTypes.func.isRequired,
+};

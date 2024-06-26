@@ -4,7 +4,7 @@ import "../styles/Button.css";
 import "../styles/Form.css";
 import "../styles/Posts.css";
 
-import { createPost } from "../../utils/Post";
+import { createPost } from "../../utils/Post.js";
 
 export default function PostForm({ setPosts, userId }) {
   const handleSubmit = async (e) => {
@@ -27,31 +27,29 @@ export default function PostForm({ setPosts, userId }) {
   };
 
   return (
-    <>
-      <form className="form" onSubmit={handleSubmit}>
-        <h2 className="form-header">Create New Post</h2>
-        <div className="input-group">
-          <label htmlFor="title">Title</label>
-          <input
-            className="form-input"
-            type="text"
-            id="title"
-            name="title"
-            placeholder="Enter Title"
-          />
-        </div>
-        <div className="input-group">
-          <label htmlFor="body">Body</label>
-          <textarea
-            className="form-input"
-            id="body"
-            name="body"
-            placeholder="Write your post"
-          />
-        </div>
-        <button className="btn btn-green btn-l">Post</button>
-      </form>
-    </>
+    <form className="form" onSubmit={handleSubmit}>
+      <h2 className="form-header">Create New Post</h2>
+      <div className="input-group">
+        <label htmlFor="title">Title</label>
+        <input
+          className="form-input"
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Enter Title"
+        />
+      </div>
+      <div className="input-group">
+        <label htmlFor="body">Body</label>
+        <textarea
+          className="form-input"
+          id="body"
+          name="body"
+          placeholder="Write your post"
+        />
+      </div>
+      <button className="btn btn-green btn-l">Post</button>
+    </form>
   );
 }
 

@@ -15,6 +15,6 @@ export async function updateAlbum(album) {
     return await axios.put(`${url}/${album.id}`, album);
 }
 
-export async function deleteAlbums(albumId) {
+export async function deleteAlbum(albumId) {
     return await axios.delete(`${url}/${albumId}`);
 }

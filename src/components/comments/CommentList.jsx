@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import CommentItem from './CommentItem.jsx';
 
-import '../../pages/styles/Posts.css';
+import '../styles/Posts.css';
 
 export default function CommentList({ comments, userId, deleteComment, updateComment }) {
 

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const url = "http://localhost:3001/comments";
 
-export async function getPostsComments(postId) {
+export async function getPostComments(postId) {
   try {
     return await axios.get(`${url}?postId=${postId}`);
   } catch (error) {
@@ -26,9 +26,9 @@ export async function deleteComment(commentId) {
   }
 }
 
-export async function updateComment(commentId, post) {
+export async function updateComment(commentId, comment) {
   try {
-    return await axios.put(`${url}/${commentId}`, post);
+    return await axios.put(`${url}/${commentId}`, comment);
   } catch (error) {
     console.error("Error updating comment: ", error);
   }

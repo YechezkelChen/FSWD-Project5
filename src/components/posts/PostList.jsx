@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import PostItem from "./PostItem.jsx";
 
-import "../../pages/styles/Posts.css";
+import "../styles/Posts.css";
 
 export default function PostList({
   userId,

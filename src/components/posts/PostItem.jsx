@@ -6,13 +6,12 @@ import { useEffect, useState } from "react";
 import CommentForm from "../comments/CommentForm.jsx";
 import CommentList from "../comments/CommentList.jsx";
 
-import "../../pages/styles/Posts.css";
+import "../styles/Posts.css";
 import "../styles/Button.css";
 
-import { getPostsComments } from "../../utils/Comments.js";
 import { deletePost } from "../../utils/Post.js";
-
 import {
+  getPostComments,
   addComment,
   deleteComment,
   updateComment,
@@ -25,7 +24,7 @@ export default function PostItem({ posts, setPosts, setFilteredPosts, post, user
 
   useEffect(() => {
     const fetchComments = async () => {
-      const response = await getPostsComments(post.id);
+      const response = await getPostComments(post.id);
       setComments(response.data);
     };
 
@@ -35,7 +34,7 @@ export default function PostItem({ posts, setPosts, setFilteredPosts, post, user
   const toggleContent = async () => {
     setShowContent(!showContent);
     if (!showContent) {
-      const response = await getPostsComments(post.id);
+      const response = await getPostComments(post.id);
       setComments(response.data);
     }
   };
