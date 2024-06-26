@@ -32,6 +32,8 @@ export default function Posts() {
       const user = await getUserByUsername(loggedUser.username);
       const userId = user[0].id;
 
+      console.log(userId)
+
       const response = await getPostsByUser(userId);
       setPosts(response.data);
       setFilteredPosts(response.data);
@@ -46,7 +48,7 @@ export default function Posts() {
       <div className="header-section">
         <h1 className="posts-header">Posts</h1>
         <button className="btn btn-blue" onClick={() => setShowForm(!showForm)}>
-          {showForm ? "Show" : "Hide"}
+          {showForm ? "Hide" : "Show"}
         </button>
       </div>
       {showForm && <PostForm setPosts={setPosts} />}

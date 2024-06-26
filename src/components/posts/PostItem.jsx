@@ -1,89 +1,82 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import CommentForm from "../comments/CommentForm.jsx";
 import CommentList from "../comments/CommentList.jsx";
 
 import "../../pages/styles/Posts.css";
 
-// import { getPostsComments } from "../../utils/Comments.js";
-import { getPostsByUser } from '../../utils/Post.js';
+import { getPostsComments } from "../../utils/Comments.js";
+
+import {
+  addComment,
+  deleteComment,
+  updateComment,
+} from "../../utils/Comments.js";
 
 export default function PostItem({ post, userId }) {
-
   const [showContent, setShowContent] = useState(false);
   const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      const response = await getPostsComments(post.id);
+      setComments(response.data);
+    };
+
+    fetchComments();
+  }, [post.id]);
 
   const toggleContent = async () => {
     setShowContent(!showContent);
     if (!showContent) {
-      const response = await getPostsByUser(post.id);
+      const response = await getPostsComments(post.id);
       setComments(response.data);
     }
   };
 
-  const addComment = (comment) => {
-    fetch(`/api/posts/${post.id}/comments`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(comment),
-    })
-      .then((response) => response.json())
-      .then((data) => setComments([...comments, data]))
-      .catch((error) => console.error("Error adding comment:", error));
+  const handleAddComment = async (comment) => {
+    const response = await addComment(post.id, comment);
+    setComments([...comments, response.data]);
   };
 
-  const deleteComment = (commentId) => {
-    fetch(`/api/comments/${commentId}`, {
-      method: "DELETE",
-    })
-      .then(() => {
-        setComments(comments.filter((comment) => comment.id !== commentId));
-      })
-      .catch((error) => console.error("Error deleting comment:", error));
+  const handleDeleteComment = async (commentId) => {
+    await deleteComment(commentId);
+    setComments(comments.filter((comment) => comment.id !== commentId));
   };
 
-  const updateComment = (commentId, updatedText) => {
-    fetch(`/api/comments/${commentId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ body: updatedText }),
-    })
-      .then((response) => response.json())
-      .then((updatedComment) => {
-        setComments(
-          comments.map((comment) =>
-            comment.id === commentId ? updatedComment : comment
-          )
-        );
-      })
-      .catch((error) => console.error("Error updating comment:", error));
+  const handleUpdateComment = async (commentId, updatedText) => {
+    const response = await updateComment(commentId, updatedText);
+    setComments(
+      comments.map((comment) =>
+        comment.id === commentId ? response.data : comment
+      )
+    );
   };
+
 
   return (
     <div className="post-item">
       <span>
         {post.id}. {post.title}
       </span>
-      <button className='btn btn-blue btn-sm' onClick={toggleContent}>{showContent ? "Hide" : "Show"}</button>
+      <button className="btn btn-blue btn-sm" onClick={toggleContent}>
+        {showContent ? "Hide" : "Show"}
+      </button>
       {showContent && (
-        <div className='post-comments'>
+        <div className="post-comments">
           <span>{post.body}</span>
           <CommentList
             comments={comments}
             userId={userId}
-            deleteComment={deleteComment}
-            updateComment={updateComment}
+            deleteComment={handleDeleteComment}
+            updateComment={handleUpdateComment}
           />
           <CommentForm
             userId={userId}
             postId={post.id}
-            addComment={addComment}
+            addComment={handleAddComment}
           />
         </div>
       )}
@@ -93,5 +86,5 @@ export default function PostItem({ post, userId }) {
 
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
-  userId: PropTypes.number.isRequired,
+  userId: PropTypes.string.isRequired,
 };

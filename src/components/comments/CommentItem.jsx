@@ -14,7 +14,7 @@ export default function CommentItem({
   const [editText, setEditText] = useState(comment.body);
 
   const handleUpdate = () => {
-    updateComment(comment.id, editText);
+    updateComment(comment.id, { ...comment, body: editText });
     setIsEditing(false);
   };
 
@@ -67,7 +67,7 @@ export default function CommentItem({
 
 CommentItem.propTypes = {
   comment: PropTypes.object.isRequired,
-  userId: PropTypes.number.isRequired,
+  userId: PropTypes.string.isRequired,
   deleteComment: PropTypes.func.isRequired,
   updateComment: PropTypes.func.isRequired,
 };

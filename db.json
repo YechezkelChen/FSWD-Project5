@@ -6,14 +6,9 @@
       "password": 1509442
     },
     {
-      "id": "6bc6",
+      "id": "3b56",
       "username": "dattali",
       "password": 1509442
-    },
-    {
-      "id": "5e79",
-      "username": "a",
-      "password": 97
     }
   ],
   "posts": [
@@ -618,14 +613,14 @@
       "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
     },
     {
-      "id": "0440",
-      "title": "initial post",
-      "body": "something about somting"
+      "id": "0420",
+      "title": "my post",
+      "body": "post body"
     },
     {
-      "id": "feec",
-      "title": "another post",
-      "body": "something else"
+      "id": "0cc0",
+      "title": "anthoer post",
+      "body": "post body 1"
     }
   ],
   "comments": [
@@ -4128,6 +4123,30 @@
       "name": "ex eaque eum natus",
       "email": "Emma@joanny.ca",
       "body": "perspiciatis quis doloremque\nveniam nisi eos velit sed\nid totam inventore voluptatem laborum et eveniet\naut aut aut maxime quia temporibus ut omnis"
+    },
+    {
+      "id": "4978",
+      "userId": "ea35",
+      "body": "adding a comment",
+      "postId": "0420"
+    },
+    {
+      "id": "eb8c",
+      "userId": "ea35",
+      "body": "adding a new comment",
+      "postId": "0420"
+    },
+    {
+      "id": "4d19",
+      "userId": "ea35",
+      "body": "trying a comments 2\n",
+      "postId": "0cc0"
+    },
+    {
+      "id": "bec1",
+      "userId": "255d",
+      "body": "another comments",
+      "postId": "0cc0"
     }
   ],
   "albums": [

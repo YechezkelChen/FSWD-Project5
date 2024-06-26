@@ -5,6 +5,7 @@ import CommentItem from './CommentItem.jsx';
 import '../../pages/styles/Posts.css';
 
 export default function CommentList({ comments, userId, deleteComment, updateComment }) {
+
     return (
         <div className="comment-section">
             <h3 className='comments-header'>Comments</h3>
@@ -23,7 +24,7 @@ export default function CommentList({ comments, userId, deleteComment, updateCom
 
 CommentList.propTypes = {
     comments: PropTypes.array.isRequired,
-    userId: PropTypes.number.isRequired,
+    userId: PropTypes.string.isRequired,
     deleteComment: PropTypes.func.isRequired,
     updateComment: PropTypes.func.isRequired,
 };

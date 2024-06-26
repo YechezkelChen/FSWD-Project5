@@ -26,6 +26,6 @@ export default function PostDetails({ post, userId, setPosts }) {
 
 PostDetails.propTypes = {
   post: PropTypes.object.isRequired,
-  userId: PropTypes.number.isRequired,
+  userId: PropTypes.string.isRequired,
   setPosts: PropTypes.func.isRequired,
 };
