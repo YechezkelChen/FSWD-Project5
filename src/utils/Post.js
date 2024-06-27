@@ -11,6 +11,13 @@ export async function getPosts() {
   }
 }
 
+export async function getPostById(postId) {
+  try {
+    return await axios.get(`${url}/${postId}`);
+  } catch (error) {
+    console.error("Error getting post by id: ", error);
+  }
+}
 
 export async function getPostsByUser(userId) {
   try {
@@ -20,12 +27,12 @@ export async function getPostsByUser(userId) {
   }
 }
 
-export async function createPost(post) { 
-    try {
-        return await axios.post(url, post);
-    } catch (error) {
-        console.error("Error adding post to database: ", error);
-    }
+export async function createPost(post) {
+  try {
+    return await axios.post(url, post);
+  } catch (error) {
+    console.error("Error adding post to database: ", error);
+  }
 }
 
 export async function updatePost(post) {
@@ -43,4 +50,3 @@ export async function deletePost(postId) {
     console.error("Error deleting post: ", error);
   }
 }
-

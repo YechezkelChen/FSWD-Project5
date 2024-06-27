@@ -1,0 +1,23 @@
+
+.post-author {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+
+    background-color: var(--indigo);
+
+    width: fit-content;
+
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--border-radius);
+}
+
+.post-header {
+    padding-bottom: .2rem;
+    border-bottom: 1px solid var(--grey);
+}
+
+.post-body {
+    margin-top: 20px;
+
+    font-size: 1.2rem;
+}
