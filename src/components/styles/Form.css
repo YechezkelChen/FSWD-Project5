@@ -29,7 +29,7 @@ label {
 .form-input {
   background-color: transparent;
   border: none;
-  outline: none;
+  /* outline: none; */
   border: 1px solid var(--grey);
   border-radius: var(--border-radius);
   padding: 0.5rem 1rem;
@@ -41,7 +41,7 @@ label {
 .form-select {
   background-color: var(--color-dark-sc);
   border: none;
-  outline: none;
+  /* outline: none; */
 
   border: 1px solid var(--grey);
   border-radius: var(--border-radius);

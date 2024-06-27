@@ -19,9 +19,9 @@
   "posts": [
     {
       "id": "e3ab",
-      "title": "admin posts",
-      "body": "body",
-      "userId": "255d"
+      "title": "Daniel Attali posts 2",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id justo eget purus eleifend tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam volutpat risus erat, ornare fermentum nulla vestibulum eu. Vestibulum pellentesque imperdiet convallis. Suspendisse porttitor turpis id dui sodales consectetur. Duis rutrum lectus ut tristique congue. Suspendisse pulvinar nulla a condimentum ullamcorper.",
+      "userId": "ea35"
     },
     {
       "id": "a412",
@@ -633,6 +633,11 @@
       "id": "118d",
       "title": "wertyuio",
       "userId": "ecc7"
+    },
+    {
+      "id": "7913",
+      "title": "my album",
+      "userId": "255d"
     }
   ],
   "photos": [
@@ -37113,7 +37118,7 @@
       "id": "0b96",
       "userId": "255d",
       "title": "admin 1",
-      "completed": false
+      "completed": true
     },
     {
       "id": "fa9b",
