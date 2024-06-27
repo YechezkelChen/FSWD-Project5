@@ -4,21 +4,24 @@ import "../../pages/styles/Todo.css";
 
 import { deleteTodo, toggleCompletionTodo } from "../../utils/Todo.js";
 
-export default function TodoItem({ edit, todo, setTodos, handleEdit }) {
+export default function TodoItem({ edit, todo, setTodos, setFilteredTodos, handleEdit }) {
   const toggleCompletion = async () => {
-    setTodos((prevTodos) =>
-      prevTodos.map((t) =>
-        t.id === todo.id ? { ...t, completed: !t.completed } : t
-      )
-    );
+    // remove the todo from the list
+    const response = await toggleCompletionTodo(todo);
 
-    await toggleCompletionTodo(todo);
+    setTodos((prev) =>
+      prev.map((t) => (t.id === todo.id ? response.data : t))
+    );
+    setFilteredTodos((prev) =>
+      prev.map((t) => (t.id === todo.id ? response.data : t))
+    );
   };
 
   const handleDelete = async (e) => {
     e.preventDefault();
     await deleteTodo(todo.id);
     setTodos((prev) => prev.filter((t) => t.id !== todo.id));
+    setFilteredTodos((prev) => prev.filter((t) => t.id !== todo.id));
   };
 
   return (
@@ -57,5 +60,6 @@ TodoItem.propTypes = {
   edit: PropTypes.bool,
   todo: PropTypes.object,
   setTodos: PropTypes.func,
+  setFilteredTodos: PropTypes.func,
   handleEdit: PropTypes.func,
 };

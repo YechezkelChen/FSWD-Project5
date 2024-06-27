@@ -66,7 +66,8 @@ export default function Todos() {
       <TodoFilters todos={todos} setFilteredTodos={setFilteredTodos} />
       <TodoList
         todos={filteredTodos}
-        setTodos={setFilteredTodos}
+        setFilteredTodos={setFilteredTodos}
+        setTodos={setTodos}
         handleEdit={handleEdit}
       />
     </div>
