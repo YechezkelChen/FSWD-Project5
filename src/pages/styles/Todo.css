@@ -40,25 +40,6 @@
 
     margin-bottom: 1rem;
 }
-/* 
-.todo-filters input,
-.todo-filters select {
-    padding: 0.5rem 1rem;
-
-    border-radius: var(--border-radius);
-    border: 1px solid var(--grey);
-
-    background-color: transparent;
-
-    color: var(--white);
-    font-size: 1rem;
-} */
-
-/* .todo-filters select option {
-    background-color: var(--grey);
-    color: var(--white);
-} */
-
 
 .todo-block {
     display: flex;
@@ -66,10 +47,6 @@
     align-items: center;
 
     width: 100%;
-}
-
-.btn-group .btn-red {
-    margin-left: .5rem;
 }
 
 .header-btn {
