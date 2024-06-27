@@ -48,7 +48,7 @@ export default function LoginForm() {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form auth-form" onSubmit={handleSubmit}>
       <div className="form-group">
         <label htmlFor="login-username">User Name</label>
         <input

@@ -74,7 +74,7 @@ export default function PostDetails() {
   return (
     <div className="main">
       {user !== null && post !== null && post.userId === user.id && (
-        <div className="page-header">
+        <div className="page-header-g">
           <p className="post-author">You</p>
           <div className="btn-group">
             <button className="btn btn-blue" onClick={handleEditPost}>

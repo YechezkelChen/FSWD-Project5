@@ -86,7 +86,7 @@ await deleteAlbum(id);
 
   return (
     <div className="main">
-      <div className="page-header">
+      <div className="page-header-g">
         {showForm ? (
           <form className="album-form" onSubmit={handleFormSubmit}>
             <input className="form-input" type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
@@ -103,7 +103,7 @@ await deleteAlbum(id);
 
         <div className="btn-group">
           <button onClick={handleEditAlbum} className="btn btn-blue btn-sm">
-            Edit
+            {showForm ? "Cancel" : "Edit"}
           </button>
           <button onClick={handleDeleteAlbum} className="btn btn-red btn-sm">
             Delete

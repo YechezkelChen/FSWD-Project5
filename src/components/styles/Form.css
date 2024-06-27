@@ -9,6 +9,19 @@
   border-radius: var(--border-radius);
 }
 
+.auth-form {
+  max-width: 70%;
+
+  align-items: center;
+}
+
+.main-auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;

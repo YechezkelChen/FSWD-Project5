@@ -1,6 +1,6 @@
 .post-author {
   /* margin-bottom: 1rem; */
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
 
   background-color: var(--indigo);
 
@@ -21,7 +21,7 @@
   font-size: 1.2rem;
 }
 
-.page-header {
+.page-header-g {
   display: flex;
   align-items: center;
   justify-content: space-between;
