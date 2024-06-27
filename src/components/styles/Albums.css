@@ -1,98 +1,106 @@
 .form {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form-header {
-    margin-bottom: 1rem;
-    padding-bottom: .5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
 
-    border-bottom: 1px solid var(--grey);
+  border-bottom: 1px solid var(--grey);
 
-    width: 100%;
+  width: 100%;
 }
 
 .form-input {
-    font-size: 1rem;
-    margin-bottom: 0;
+  font-size: 1rem;
+  margin-bottom: 0;
 }
 
 .album-filters {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .album-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .album-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
 
-    width: 100%;
+  width: 100%;
 
-    padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
 
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 
-    gap: 0.5rem;
+  gap: 0.5rem;
 
-    background-color: var(--grey);
-    border-radius: var(--border-radius);
+  background-color: var(--grey);
+  border-radius: var(--border-radius);
 }
 
 .album-user {
-    color: var(--white);
-    background-color: var(--bg-indigo);
+  color: var(--white);
+  background-color: var(--bg-indigo);
 
-    font-size: 1rem !important;
+  font-size: 1rem !important;
 
-    padding: 0.1rem 0.5rem;
+  padding: 0.1rem 0.5rem;
 
-    border-radius: var(--border-radius);
+  border-radius: var(--border-radius);
 }
 
 .album-body {
-    font-size: 0.8rem;
-    color: var(--white-dim);
-    margin: 1rem 0;
+  font-size: 0.8rem;
+  color: var(--white-dim);
+  margin: 1rem 0;
 }
 
 .album-body-c {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    width: 100%;
+  width: 100%;
 }
 
 .album-id {
-    color: var(--blue);
-    text-decoration: none;
+  color: var(--blue);
+  text-decoration: none;
 }
 
 .album-photos {
-    width: 100%;
+  width: 100%;
 }
 
 .photo-section {
-    margin-top: 1rem;
+  margin-top: 1rem;
+}
+
+.photo-list {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+
+  gap: 1rem;
 }
 
 .photos-header {
-    width: 100%;
+  width: 100%;
 
-    border-bottom: 1px solid var(--bg-primary);
+  border-bottom: 1px solid var(--bg-primary);
 
-    padding-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
 }

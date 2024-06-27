@@ -11,6 +11,10 @@ export async function getAlbums(userId) {
     return await axios.get(`${url}?userId=${userId}`);
 }
 
+export async function getAlbumById(albumId) {
+    return await axios.get(`${url}/${albumId}`);
+}
+
 export async function updateAlbum(album) {
     return await axios.put(`${url}/${album.id}`, album);
 }

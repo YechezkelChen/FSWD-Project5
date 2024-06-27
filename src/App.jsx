@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/general/Layout.jsx";
 
 import Albums from "./pages/Albums.jsx";
+import AlbumsDetails from "./pages/AlbumDetails.jsx";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Logout from "./pages/Logout.jsx";
@@ -30,6 +31,7 @@ function App() {
             <Route path="posts" element={<Posts />} />
             <Route path="posts/:id" element={<PostDetails />} />
             <Route path="albums" element={<Albums />} />
+            <Route path="albums/:id" element={<AlbumsDetails />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

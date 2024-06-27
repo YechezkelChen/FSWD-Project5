@@ -1,0 +1,32 @@
+.photo-item {
+    display: flex;
+    flex-direction: column;
+
+    width: fit-content;
+
+    padding: 0;
+    padding-bottom: 1rem;
+
+    border-radius: var(--border-radius);
+
+    max-width: 25%;
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto;
+
+    border-radius: var(--border-radius);
+
+    margin-bottom: 1rem;
+}
+
+.photo-item p {
+    margin: 0;
+    padding: 1rem;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    color: var(--grey);
+}
