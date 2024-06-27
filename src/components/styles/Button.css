@@ -58,3 +58,8 @@
 
     margin: 0 .2rem;
 }
+
+.btn-inactive {
+  background-color: var(--grey);
+  cursor: not-allowed;
+}

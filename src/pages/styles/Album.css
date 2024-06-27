@@ -1,0 +1,17 @@
+.pagination {
+    /* center the div */
+    display: flex;
+    justify-content: center;
+
+    margin-top: 2rem;
+}
+
+.album {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+}

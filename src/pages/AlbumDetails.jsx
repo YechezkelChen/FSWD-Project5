@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { getAlbumById } from "../utils/Album";
-import { getAlbumPhotos } from "../utils/Photos.js";
+import { getAlbumPhotosPaginated } from "../utils/Photos.js";
 import { getUserByUsername } from "../utils/User";
 import { getLoggedUser } from "../utils/loggedUsers";
 
 import PhotoList from "../components/photos/PhotoList.jsx";
+
+import "./styles/Album.css";
 
 export default function Album() {
   const { id } = useParams();
@@ -15,6 +17,10 @@ export default function Album() {
   const [user, setUser] = useState({ id: "1" });
   const [album, setAlbum] = useState({});
   const [photos, setPhotos] = useState([]);
+
+  const [page, setPage] = useState(1);
+  const [nextPage, setNextPage] = useState(null);
+  const [prevPage, setPrevPage] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,12 +39,15 @@ export default function Album() {
       const albumResponse = await getAlbumById(id);
       setAlbum(albumResponse.data);
 
-      const response = await getAlbumPhotos(id);
-      setPhotos(response.data);
+      const response = await getAlbumPhotosPaginated(id, page, 4);
+
+      setPhotos(response.data.data);
+      setNextPage(response.data.next);
+      setPrevPage(response.data.prev);
     };
 
     fetchData();
-  }, [id]);
+  }, [id, page]);
 
   const handleDeletePhoto = async (photoId) => {
     console.log(photoId);
@@ -48,7 +57,7 @@ export default function Album() {
   };
 
   return (
-    <div>
+    <div className="album">
       <h1>{album.title}</h1>
       <PhotoList
         photos={photos}
@@ -56,6 +65,25 @@ export default function Album() {
         deletePhoto={handleDeletePhoto}
         updatePhoto={handleEditPhoto}
       />
+      <div className="pagination btn-group">
+        {prevPage && (
+          <button
+            className="btn btn-blue btn-sm"
+            onClick={() => setPage(page - 1)}
+          >
+            Previous
+          </button>
+        )}
+        <span className="btn btn-sm btn-inactive">{page}</span>
+        {nextPage && (
+          <button
+            className="btn btn-blue btn-sm"
+            onClick={() => setPage(page + 1)}
+          >
+            Next
+          </button>
+        )}
+      </div>
     </div>
   );
 }

@@ -7,9 +7,13 @@
     padding: 0;
     padding-bottom: 1rem;
 
-    border-radius: var(--border-radius);
+    /* border-radius: var(--border-radius); */
 
-    max-width: 25%;
+    max-width: 20%;
+    min-width: 10%;
+
+    /* width: 200px; */
+    /* max-height: 300px; */
 }
 
 .photo-item img {
@@ -24,6 +28,7 @@
 .photo-item p {
     margin: 0;
     padding: 1rem;
+    padding-top: 0;
 
     font-size: 1rem;
     font-weight: 500;

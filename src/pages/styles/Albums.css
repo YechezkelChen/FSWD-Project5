@@ -36,9 +36,11 @@
 .photo-list {
   display: flex;
   flex-wrap: wrap;
+
+  margin-top: 1rem;
 }
 
-.photo-item {
+/* .photo-item {
   width: calc(33.333% - 1rem);
   margin: 0.5rem;
   padding: 1rem;
@@ -47,7 +49,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .photo-thumbnail {
   width: 100%;
