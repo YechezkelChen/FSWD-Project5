@@ -96,6 +96,12 @@
       "userId": "ecc7",
       "body": "hi",
       "postId": "b285"
+    },
+    {
+      "id": "b759",
+      "userId": "ecc7",
+      "body": "hi11",
+      "postId": "b285"
     }
   ],
   "albums": [
@@ -615,11 +621,6 @@
       "userId": "ecc7"
     },
     {
-      "id": "3b94",
-      "title": "q",
-      "userId": "ecc7"
-    },
-    {
       "id": "941f",
       "title": "chezy",
       "userId": "ecc7"
@@ -643,6 +644,11 @@
       "id": "a404",
       "title": "My new album",
       "userId": "ea35"
+    },
+    {
+      "id": "1754",
+      "title": "ww",
+      "userId": "ecc7"
     }
   ],
   "photos": [
@@ -659,13 +665,6 @@
       "title": "reprehenderit est deserunt velit ipsam",
       "url": "https://via.placeholder.com/600/771796",
       "thumbnailUrl": "https://via.placeholder.com/150/771796"
-    },
-    {
-      "albumId": 1,
-      "id": "3",
-      "title": "officia porro iure quia iusto qui ipsa ut modi",
-      "url": "https://via.placeholder.com/600/24f355",
-      "thumbnailUrl": "https://via.placeholder.com/150/24f355"
     },
     {
       "albumId": 1,

@@ -10,6 +10,7 @@ import { getLoggedUser } from "../utils/loggedUsers";
 import PhotoList from "../components/photos/PhotoList.jsx";
 
 import "./styles/Album.css";
+import PhotoForm from "../components/photos/PhotoForm.jsx";
 
 export default function Album() {
   const { id } = useParams();
@@ -43,7 +44,7 @@ export default function Album() {
       setAlbum(albumResponse.data);
       setTitle(albumResponse.data.title);
 
-      const response = await getAlbumPhotosPaginated(id, page, 4);
+      const response = await getAlbumPhotosPaginated(id, page, 3);
 
       setPhotos(response.data.data);
       setNextPage(response.data.next);
@@ -53,21 +54,16 @@ export default function Album() {
     fetchData();
   }, [id, page]);
 
-  const handleDeletePhoto = async (photoId) => {
-    console.log(photoId);
-  };
-  const handleEditPhoto = async (photoId, url) => {
-    console.log(photoId, url);
-  };
-
   const handleDeleteAlbum = async () => {
-await deleteAlbum(id);
+    await deleteAlbum(id);
     window.location.href = "/albums";
   };
+
   const handleEditAlbum = async () => {
     setShowForm(prev => !prev);
   };
-  const handleAddPhoto = async () => {};
+
+  const handleAddPhoto = async () => { };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -78,7 +74,7 @@ await deleteAlbum(id);
       userId: user.id,
     };
 
-    const response = await updateAlbum(newAlbum);  
+    const response = await updateAlbum(newAlbum);
 
     setAlbum(response.data);
     setShowForm(false);
@@ -89,7 +85,7 @@ await deleteAlbum(id);
       <div className="page-header-g">
         {showForm ? (
           <form className="album-form" onSubmit={handleFormSubmit}>
-            <input className="form-input" type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
+            <input className="form-input" type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)} />
             <div className="btn-group">
               <button
                 type="submit"
@@ -100,7 +96,6 @@ await deleteAlbum(id);
         ) : (
           <p>{album.title}</p>
         )}
-
         <div className="btn-group">
           <button onClick={handleEditAlbum} className="btn btn-blue btn-sm">
             {showForm ? "Cancel" : "Edit"}
@@ -116,8 +111,6 @@ await deleteAlbum(id);
       <PhotoList
         photos={photos}
         userId={user.id}
-        deletePhoto={handleDeletePhoto}
-        updatePhoto={handleEditPhoto}
       />
       <div className="pagination btn-group">
         {prevPage && (

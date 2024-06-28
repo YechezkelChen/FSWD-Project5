@@ -1,0 +1,24 @@
+.page-header-g {
+    display: flex;
+    align-items: center;
+    justify-content:  space-between;
+
+    width: 100%;
+    height: fit-content;
+}
+
+.form-header {
+    margin-bottom: 1rem;
+}
+
+.photo-header {
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid var(--grey);
+}
+
+
+.post-img {
+    margin-top: 20px;
+
+    font-size: 1.2rem;
+}

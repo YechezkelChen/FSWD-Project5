@@ -1,7 +1,70 @@
-export default function PhotoForm({ photo, setPhotos, editMode, setEditMode }) {
+import PropTypes from "prop-types";
+
+import "../styles/Button.css";
+import "../styles/Form.css";
+import "../styles/Posts.css";
+
+import { createPost } from "../../utils/Post.js";
+
+export default function PostForm({ setPosts, userId }) {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const post = {
+      title: form.title.value,
+      body: form.body.value,
+      userId: userId,
+    };
+
+    const response = await createPost(post);
+
+    if (response.status === 201) {
+      setPosts((prevPosts) => [response.data, ...prevPosts]);
+    }
+    form.reset();
+  };
 
   return (
-    <>
-    </>
+    <form className="form" onSubmit={handleSubmit}>
+      <h2 className="form-header">Create New Post</h2>
+      <div className="input-group">
+        <label htmlFor="title">Title</label>
+        <input
+          className="form-input"
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Enter Title"
+        />
+      </div>
+      <div className="input-group">
+        <label htmlFor="url">Url</label>
+        <input
+          className="form-input"
+          type="text"
+          id="url"
+          name="url"
+          placeholder="Enter Url"
+        />
+      </div>
+      <div className="input-group">
+        <label htmlFor="thumbnailUrl">Thumbnail Url</label>
+        <input
+          className="form-input"
+          type="text"
+          id="thumbnailUrl"
+          name="thumbnailUrl"
+          placeholder="Enter Thumbnail Url"
+        />
+      </div>
+      <button className="btn btn-green btn-l">Add</button>
+    </form>
   );
 }
+
+PostForm.propTypes = {
+  setPosts: PropTypes.func.isRequired,
+  userId: PropTypes.string,
+};

@@ -29,7 +29,7 @@ export default function Albums() {
       }
 
       const users = await getUserByUsername(loggedUser.username);
-      const userId = users[0].id;
+      const userId = 1//users[0].id;
       setUserId(userId);
 
       const response = await getAlbums(userId);

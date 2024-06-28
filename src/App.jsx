@@ -13,6 +13,7 @@ import PostDetails from "./pages/PostDetails.jsx";
 import Profile from "./pages/Profile.jsx";
 import Register from "./pages/Register.jsx";
 import Todos from "./pages/Todos.jsx";
+import PhotoDetails from "./pages/PhotoDetails.jsx";
 
 import "./App.css";
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="posts/:id" element={<PostDetails />} />
             <Route path="albums" element={<Albums />} />
             <Route path="albums/:id" element={<AlbumsDetails />} />
+            <Route path="photos/:id" element={<PhotoDetails />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

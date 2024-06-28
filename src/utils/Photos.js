@@ -10,6 +10,14 @@ export async function addPhoto(albumId, photo) {
   }
 }
 
+export async function getPhotoById(photoId) {
+  try {
+    return await axios.get(`${url}/${photoId}`);
+  } catch (error) {
+    console.error("Error getting photo by id: ", error);
+  }
+}
+
 export async function getAlbumPhotos(albumId) {
   try {
     return await axios.get(`${url}?albumId=${albumId}`);
